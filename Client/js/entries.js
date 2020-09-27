@@ -43,7 +43,7 @@ socket.on("receiveEntries", function(data){
         a.style.border = "2px solid black";
         // a.style.margin = "0px 90px 40px 90px";
         a.style.height = "80px";
-        a.style.width = "500px";
+        a.style.width = "300px";
         a.style.color = "black";
         a.className = "description text-center";  
         a.setAttribute("data-toggle", "collapse");
@@ -68,7 +68,7 @@ socket.on("receiveEntries", function(data){
     for (let x in data.data) {
         // Create Div container
         let div = document.createElement("DIV");
-        div.className = "col-large col-medium col-small";
+        div.className = "container col-large col-medium col-small";
         document.getElementById(data.categories.indexOf(data.data[x].category) +"a").appendChild(div);
 
         // Add the name of the team
@@ -80,7 +80,7 @@ socket.on("receiveEntries", function(data){
         div.appendChild(tag);
 
         // Video Embed
-        let link = '<iframe width="560" height="315" src=' + data.data[x].link +' frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+        let link = '<iframe src=' + data.data[x].link +' frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
         let video = document.createElement("DIV");
         video.innerHTML = link;
         video.className = "text-center"

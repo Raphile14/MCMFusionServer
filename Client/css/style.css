@@ -22,9 +22,10 @@ body {
     margin-top: 40px;
 }
 
-#entries {
+/* #entries {
+    background-color: pink;
     margin: 30px 20px 30px 20px;
-}
+} */
 
 li {
     margin: 5px 5px 5px 5px;
@@ -41,7 +42,7 @@ li {
 /* Header */
 .navbar-brand h1 { 
     color: black;
-    font-size: 1.5em;
+    font-size: 1.25em;
     font-weight: bold;
     text-shadow: 1px 1px 1px #222;
     margin-top: 0;
@@ -156,7 +157,7 @@ p {
     }
 
     section {
-        margin: 20px 50px 50px 50px;
+        margin: 20px 35px 50px 35px;
         border: 2px solid black;
         height: 400px;
         background-color: lightgray;        
