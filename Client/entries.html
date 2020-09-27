@@ -1,0 +1,77 @@
+<!-- Site to Serve Entries -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> MCM Fusion: Technicity Entries </title>        
+        <!-- Title Icon -->
+        <link rel="icon" href="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/929cb090-e779-401a-b06c-c629ff6b0fea/ap-malayancollegesminda/editor_images/logo2_1.png" type="image/x-icon">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- css script -->
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>        
+        <header>
+            <nav id="header-nav" class="navbar navbar-default">
+                <div class="container"> 
+                    <div class="navbar-brand"> 
+                        <a href="index.html"> <h1> MCM Fusion: Entries </h1> </a>
+                    </div>                                             
+                    
+                    <!-- Collapsable Button -->                    
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+                        <span class="sr-only"> Toggle Navigation </span>
+                        <span class="icon-bar"> </span>
+                        <span class="icon-bar"> </span>
+                        <span class="icon-bar"> </span>
+                    </button>  
+                    
+                    <!-- Navbar Front -->
+                    <div id="collapsable-nav" class="collapse navbar-collapse">
+                        <ul id="nav-list" class="nav navbar-nav navbar-right text-center">
+                            <li> <a href="index.html"> <h2> Results </h2> </a> </li>
+                            <li> <a href="submission.html"> <h2> Voting Area </h2> </a> </li>
+                            <li> <a href="policy.html"> <h2> Privacy Policy </h2> </a> </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Collapsable Navbar -->
+                <div id="collapsable-nav" class="collapse navbar-collapse">
+                    <ul id="nav-list" class="nav navbar-nav navbar-right visible-xs text-center">
+                        <li> <a href="index.html"> <h2> Results </h2> </a> </li>
+                        <li> <a href="submission.html"> <h2> Voting Area </h2> </a> </li>
+                        <li> <a href="policy.html"> <h2> Privacy Policy </h2> </a> </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>              
+        
+        <div id="entries">
+
+        </div>
+         
+        <div id="bot" class="full">
+            <p id="userCount"> Users Currently on this Website: <span id="usersConnected"> 0 </span></p>
+            <p class="description"> <a href="policy.html"> View Privacy Policy </a> </p>
+            <p id="credits" class="description"> Created by: Raphael Dalangin (MCM 3rd Year BS Computer Science) </p>   
+        </div>        
+
+        <!-- Scripts -->
+        <!-- Boostrap JS Files -->
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Socket.IO Script -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+        <!-- Local Scripts -->
+        <!-- <script src="./js/utility.js"></script>  -->
+        <script src="./js/entries.js"></script>
+    </body>
+</html>

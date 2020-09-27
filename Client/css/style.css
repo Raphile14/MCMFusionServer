@@ -1,0 +1,164 @@
+*  {
+    box-sizing: border-box;    
+    margin: 0;
+}
+
+body {
+    font-size: 16px;
+    color: #fff;
+    background-color: #FFFFFF;
+    font-family: 'Oxygen', sans-serif;
+    /* background-image: url("https://wallpaperset.com/w/full/8/d/7/462766.jpg"); */
+}
+
+#header-nav {
+    background-color: #C0C0C0;
+    border-radius: 0;
+    border: 1px solid black;
+}
+
+#bot {
+    width: 100;
+    margin-top: 40px;
+}
+
+#entries {
+    margin: 30px 20px 30px 20px;
+}
+
+li {
+    margin: 5px 5px 5px 5px;
+    border: 1px solid gray;
+    background-color: lightgray;
+}
+
+#header-nav .container {
+    margin-left: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Header */
+.navbar-brand h1 { 
+    color: black;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #222;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: .75;    
+}
+
+.navbar-brand a:hover, .navbar-brand a:focus {
+    text-decoration: none;
+}
+
+.container button.navbar-toggle, .icon-bar {
+    border: 1px solid black;
+}
+
+h2 {
+    font-size: 16px;
+    margin: 0px 0px 0px 0px;
+    color: black;
+}
+
+h3, h4 {
+    font-weight: bold;
+    color: black;
+}
+
+section {
+    margin: 20px 100px 80px 100px;
+    border: 2px solid black;
+    height: 400px;
+    background-color: lightgray;
+    
+}
+
+p {
+    margin-left: 20px;
+    margin-right: 20px;
+    color: black;
+}
+
+#credits {
+    font-size: 12px;
+    text-align: right;
+}
+
+#facSHS, #facC, #ssSHS, #ssC, #vvSHS, #vvC {
+    background-repeat: no-repeat;
+    background-position: bottom right;     
+    background-image: url("https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/929cb090-e779-401a-b06c-c629ff6b0fea/ap-malayancollegesminda/editor_images/logo2_1.png");
+    background-size: 150px;
+}
+
+/* Media Queries */
+/* Desktop Version */
+@media (min-width: 992px) {
+    .col-large {
+        float: left;  
+        width: 50%;      
+    }
+    .full {
+        float: left;
+        width: 100%;
+    }
+
+    section {
+        margin: 20px 80px 80px 80px;
+        border: 2px solid black;
+        height: 400px;
+        background-color: lightgray;
+        
+    }
+
+}
+
+/* Tablet Version */
+@media (min-width: 768px) and (max-width: 991px) {
+    .col-medium, .col-medium-2 {
+        float: left;            
+    }     
+    .col-medium {
+        width: 50%;
+    }
+    .full {
+        float: left;
+        width: 100%;
+    }
+    #facSHS, #facC, #ssSHS, #ssC,  #vvSHS, #vvC {
+        background-size: 100px;
+    }
+
+    section {
+        margin: 20px 50px 80px 50px;
+        border: 2px solid black;
+        height: 400px;
+        background-color: lightgray;        
+    }
+
+}
+
+/* Mobile Version */
+@media (max-width: 767px) {
+    .col-small {
+        float: left;
+        width: 100%;
+    }  
+    .full {
+        float: left;
+        width: 100%;
+    }
+    #facSHS, #facC, #ssSHS, #ssC, #vvSHS, #vvC {
+        background-size: 100px;
+    }
+
+    section {
+        margin: 20px 50px 50px 50px;
+        border: 2px solid black;
+        height: 400px;
+        background-color: lightgray;        
+    }
+}

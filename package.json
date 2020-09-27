@@ -1,0 +1,24 @@
+{
+  "name": "mcmfusionserver",
+  "version": "1.0.0",
+  "description": "Backend server to control MCM Fusion: Technicity voting process",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raphile14/MCMFusionServer.git"
+  },
+  "author": "Raphael Dalangin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Raphile14/MCMFusionServer/issues"
+  },
+  "homepage": "https://github.com/Raphile14/MCMFusionServer#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0",
+    "xlsx": "^0.16.7"
+  }
+}
