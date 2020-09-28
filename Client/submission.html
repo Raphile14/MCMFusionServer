@@ -52,7 +52,53 @@
                     </ul>
                 </div>
             </nav>
-        </header>               
+        </header>        
+        
+        <!-- Section 1 -->
+        <div id="voteContainer">
+            <h3 class="section-title text-center"> Voting Form </h3>
+
+            <form id="submissionForm" action="">                    
+                <div class="form-group">
+                    <label for="inputEmail"> Email Address  </label>
+                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" required>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else. </small>
+                </div>
+                <div class="form-group">
+                    <label for="inputName"> Name of Voter  </label>
+                    <input type="text" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Enter name" required>
+                    <small id="nameHelp" class="form-text text-muted">We'll never share your name with anyone else. </small>
+                </div>
+
+                <!-- Department Selection -->
+                <fieldset class="form-group">
+                    <div class="row">
+                        <label for="dept" class="col-form-label col-sm-2"> Department  </label>   
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="selectSHS" value="shs" onclick="get('SHS')" checked>
+                                <label class="form-check-label" for="selectSHS">
+                                    Senior High School
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="selectC" value="c" onclick="get('COLLEGE')">                              
+                                <label class="form-check-label" for="selectC">
+                                    College
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div id="checklistArea">
+
+                </div>
+                <button id="voteSubmit" type="submit" class="btn btn-primary"> Submit </button>
+            </form>
+
+            <p class="description text-center"> <a href="index.html"> (View to Results Page) </a> </p>            
+        </div>
         
         <p id="userCount"> Users Currently on this Website: <span id="usersConnected"> 0 </span></p>
         <p class="description"> <a href="policy.html"> View Privacy Policy </a> </p>  
@@ -66,6 +112,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
         <!-- Local Scripts -->
         <!-- <script src="./js/utility.js"></script>  -->
-        <script src="./js/script.js"></script>
+        <script src="./js/vote.js"></script>
     </body>
 </html>

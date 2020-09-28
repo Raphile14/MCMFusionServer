@@ -71,6 +71,27 @@ io.on('connection', function(socket){
         socket.emit('receiveEntries', {categories: cacheCategories, data: data});
     });
 
+    // Emit Teams list
+    socket.on("get", function(data){
+        let query = [];
+        let sortedCategories = [];
+        let sortedEntries = [];
+        for (let category in cacheCategories) {
+            if (cacheCategories[category].includes(data.type)) {
+                sortedCategories.push(cacheCategories[category]);
+            }
+        }
+        query.push(sortedCategories);
+        // console.log(query);
+        for (let entry in cacheEntries) {
+            if (cacheEntries[entry].data.category.includes(data.type)) {
+                sortedEntries.push({name: entry, category: cacheEntries[entry].data.category});
+            }
+        }
+        query.push(sortedEntries);
+        socket.emit('receiveData', {data: query})
+    });
+
     // TODO: CHANGE THIS TO WHEN A VOTE IS CASTED INSTEAD
     // Update standings
     socket.on("getResults", function(){
