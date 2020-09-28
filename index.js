@@ -74,7 +74,7 @@ io.on('connection', function(socket){
             }            
         }  
         socket.emit('receiveEntries', {data: data});
-        console.log(data);
+        // console.log(data);
     });
 
     // Emit Teams list

@@ -4,7 +4,7 @@ socket.on("connectedUsers", function(data){
     document.getElementById("usersConnected").innerText =  data.number;
 });
 
-socket.emit("getEntries", {list: ["Vattle of the Vands", "COLLEGE Vattle of the Vands"]});
+socket.emit("getEntries", {list: ["SHS Vattle of the Vands", "COLLEGE Vattle of the Vands"]});
 
 function buttonPres (name) {
     if (name == 1) {
