@@ -58,7 +58,7 @@
         <div id="voteContainer">
             <h3 class="section-title text-center"> Voting Form </h3>
 
-            <form id="submissionForm" action="">                    
+            <form id="submissionForm">                    
                 <div class="form-group">
                     <label for="inputEmail"> Email Address  </label>
                     <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" required>
@@ -90,11 +90,11 @@
                         </div>
                     </div>
                 </fieldset>
-
+                <small id="voteHelp" class="form-text text-muted"></small>
                 <div id="checklistArea">
 
                 </div>
-                <button id="voteSubmit" type="submit" class="btn btn-primary"> Submit </button>
+                <a id="voteSubmit" class="btn btn-primary" href="#voteContainer"> Submit </a>
             </form>
 
             <p class="description text-center"> <a href="index.html"> (View to Results Page) </a> </p>            

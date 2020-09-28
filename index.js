@@ -82,7 +82,6 @@ io.on('connection', function(socket){
             }
         }
         query.push(sortedCategories);
-        // console.log(query);
         for (let entry in cacheEntries) {
             if (cacheEntries[entry].data.category.includes(data.type)) {
                 sortedEntries.push({name: entry, category: cacheEntries[entry].data.category});
@@ -90,6 +89,11 @@ io.on('connection', function(socket){
         }
         query.push(sortedEntries);
         socket.emit('receiveData', {data: query})
+    });
+
+    // Receive Vote
+    socket.on("submit", function(data){
+        console.log(data)
     });
 
     // TODO: CHANGE THIS TO WHEN A VOTE IS CASTED INSTEAD
