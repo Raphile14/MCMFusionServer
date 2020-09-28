@@ -14,15 +14,15 @@
         <!-- css script -->
         <link rel="stylesheet" type="text/css" href="./css/style.css">
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
     </head>
 
     <body>        
         <header>
             <nav id="header-nav" class="navbar navbar-default">
-                <div class="container"> 
+                <div id="index" class="container"> 
                     <div class="navbar-brand"> 
-                        <a href="index.html"> <h1> MCM Fusion: Entries </h1> </a>
+                        <!-- <a href="index.html"> <h1> MCM Fusion: Entries </h1> </a> -->
                     </div>                                             
                     
                     <!-- Collapsable Button -->                    
@@ -36,9 +36,10 @@
                     <!-- Navbar Front -->
                     <div id="" class="float-right visible-sm visible-md visible-lg visible-xl">
                         <ul id="nav-list" class="nav navbar-nav navbar-right text-center">
-                            <li> <a href="index.html"> <h2> Results </h2> </a> </li>
-                            <li> <a href="submission.html"> <h2> Voting Area </h2> </a> </li>
-                            <li> <a href="policy.html"> <h2> Privacy Policy </h2> </a> </li>
+                            <li> <a href="index.html"> <h2 class="list"> RESULTS </h2> </a> </li>
+                            <li> <a href="entries.html"> <h2 class="list"> ENTRIES </h2> </a> </li>
+                            <li> <a href="submission.html"> <h2 class="list"> VOTING AREA </h2> </a> </li>
+                            <li> <a href="policy.html"> <h2 class="list"> PRIVACY POLICY </h2> </a> </li>
                         </ul>
                     </div>
                 </div>
@@ -46,23 +47,91 @@
                 <!-- Collapsable Navbar -->
                 <div id="collapsable-nav" class="collapse navbar-collapse">
                     <ul id="nav-list" class="nav navbar-nav navbar-right visible-xs text-center">
-                        <li> <a href="index.html"> <h2> Results </h2> </a> </li>
-                        <li> <a href="submission.html"> <h2> Voting Area </h2> </a> </li>
-                        <li> <a href="policy.html"> <h2> Privacy Policy </h2> </a> </li>
+                        <li> <a href="index.html"> <h2> RESULTS </h2> </a> </li>
+                        <li> <a href="entries.html"> <h2> ENTRIES </h2> </a> </li>
+                        <li> <a href="submission.html"> <h2> VOTING AREA </h2> </a> </li>
+                        <li> <a href="policy.html"> <h2> PRIVACY POLICY </h2> </a> </li>
                     </ul>
                 </div>
             </nav>
         </header>              
         
+        <!-- Section 1 -->
+        <div class="col-large col-medium col-small">
+            <div id="outer">
+                <br>
+                <section class="title">
+                    <h3 id="a1" id="top" class="text-center">  MCM Flicks & Chill </h3>
+                </section>                    
+                <hr class="style1">
+                <p class="text-justify">
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                </p>
+                <br>
+                <div class="text-center">
+                    <a class="btn btn-primary" href="flicksandchill.html"> View Entries </a>
+                </div>                
+                <br>
+            </div>            
+        </div>
+
+        <!-- Section 2 -->
+        <div class="col-large col-medium col-small">                            
+            <div id="outer">
+                <br>             
+                <section id="a2" class="title">
+                    <h3 id="top" class="text-center"> Show Stopper </h3>
+                </section>                      
+                <hr class="style1">
+                <p class="text-justify">
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                </p>
+                <br>
+                <div class="text-center">
+                    <a class="btn btn-primary" href="showstopper.html"> View Entries </a>
+                </div>                                
+                <br>
+            </div>            
+        </div>
+
+        <!-- Section 3 -->
+        <div class="col-large col-medium col-small">
+            <div id="outer">
+                <br>
+                <section id="a3" class="title">
+                    <h3 id="top" class="text-center">  Vattle of the Vands </h3>
+                </section>                    
+                <hr class="style1">
+                <p class="text-justify">
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                </p>
+                <br>
+                <div class="text-center">
+                    <a class="btn btn-primary" href="vattleofthevands.html"> View Entries </a>
+                </div>               
+                <br>
+            </div>            
+        </div>
+
         <div id="entries">
 
         </div>
          
-        <div id="bot" class="full">
-            <p id="userCount"> Users Currently on this Website: <span id="usersConnected"> 0 </span></p>
-            <p class="description"> <a href="policy.html"> View Privacy Policy </a> </p>
-            <p id="credits" class="description"> Created by: Raphael Dalangin <br> (MCM 3rd Year BS Computer Science) </p>   
-        </div>        
+        <!-- Footer -->
+        <footer class="page-footer font-small">
+            <div id="footer">
+                <div id="below">
+                    <div id="bot" class="full">
+                        <div class="col-sm">
+                            <p id="userCount"> <h2 id="count" class="list"> USERS ONLINE:  <span id="usersConnected"> 0 </span> </h2> </p>
+                        </div>
+                        <div class="col-sm">
+                            <a href="policy.html"> <h2 id="privacy" class="list"> PRIVACY POLICY </h2> </a>
+                        </div>                                                                    
+                    </div>
+                </div>                
+            </div>            
+        </footer>       
 
         <!-- Scripts -->
         <!-- Boostrap JS Files -->
@@ -72,6 +141,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
         <!-- Local Scripts -->
         <!-- <script src="./js/utility.js"></script>  -->
-        <script src="./js/entries.js"></script>
+        <script src="./js/navigation.js"></script>
     </body>
 </html>

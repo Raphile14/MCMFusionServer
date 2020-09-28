@@ -74,7 +74,7 @@ module.exports = class VoteDatabase {
         // console.log(this.cVoters);
         // console.log(this.shsVoters);
         // console.log(this.cacheCategories);
-        console.log(this.cacheEntries);
+        // console.log(this.cacheEntries);
         // console.log(tempSheetJSONStorage);
     }
     submitVote(data) {

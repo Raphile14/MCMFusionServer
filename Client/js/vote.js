@@ -11,7 +11,6 @@ function get(type) {
     socket.emit("get", {type: type});
 }
 
-
 var form = document.getElementById("voteSubmit");
 form.onclick = function() {
     let emailStatus = true;
@@ -64,6 +63,8 @@ socket.on("submitConfirmation", function(data) {
         document.getElementById('emailHelp').style.color = "green";
         document.getElementById('nameHelp').textContent = "Success!";
         document.getElementById('nameHelp').style.color = "green";
+        document.getElementById('voteHelp').textContent = "";
+        document.getElementById('voteHelp').style.color = "green";
     }
     else {
         document.getElementById('emailHelp').textContent = "Invalid Email! Email already used or non existing";

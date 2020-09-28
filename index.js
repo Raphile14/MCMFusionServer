@@ -65,12 +65,16 @@ io.on('connection', function(socket){
     });
 
     // Emit Entries with Videos
-    socket.on('getEntries', function(){
+    socket.on('getEntries', function(packet){
+        // console.log(packet);
         let data = [];
         for (let key in cacheEntries) {
-            data.push({name: key, code: cacheEntries[key].data.code, category: cacheEntries[key].data.category, link: cacheEntries[key].data.link});
+            if (packet.list.includes(cacheEntries[key].data.category)) {
+                data.push({name: key, link: cacheEntries[key].data.link});
+            }            
         }  
-        socket.emit('receiveEntries', {categories: cacheCategories, data: data});
+        socket.emit('receiveEntries', {data: data});
+        console.log(data);
     });
 
     // Emit Teams list

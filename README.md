@@ -7,6 +7,11 @@ This Bot is used to assist the MCM Fusion: Technicity event for the academic yea
 This project is a remake of the MCMFusionBot using Facebook Messenger.
 
 # Changelog
+indev 2.0.0 (09/28/2020)
+- Bug fixes from stress test
+- Design Revamp
+- New features and functionality
+
 indev 1.3.1 (09/28/2020)
 - Bug fixes
 

@@ -14,15 +14,15 @@
         <!-- css script -->
         <link rel="stylesheet" type="text/css" href="./css/style.css">
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
     </head>
 
     <body>        
         <header>
             <nav id="header-nav" class="navbar navbar-default">
-                <div class="container"> 
+                <div id="index" class="container"> 
                     <div class="navbar-brand"> 
-                        <a href="index.html"> <h1> MCM: Fusion Vote </h1> </a>
+                        <!-- <a href="index.html"> <h1> MCM: Fusion Vote </h1> </a> -->
                     </div>                                             
                     
                     <!-- Collapsable Button -->                    
@@ -36,9 +36,10 @@
                     <!-- Navbar Front -->
                     <div id="" class="float-right visible-sm visible-md visible-lg visible-xl">
                         <ul id="nav-list" class="nav navbar-nav navbar-right text-center">
-                            <li> <a href="index.html"> <h2> Results </h2> </a> </li>
-                            <li> <a href="entries.html"> <h2> Entries </h2> </a> </li>
-                            <li> <a href="policy.html"> <h2> Privacy Policy </h2> </a> </li>
+                            <li> <a href="index.html"> <h2 class="list"> RESULTS </h2> </a> </li>
+                            <li> <a href="entries.html"> <h2 class="list"> ENTRIES </h2> </a> </li>
+                            <li> <a href="submission.html"> <h2 class="list"> VOTING AREA </h2> </a> </li>
+                            <li> <a href="policy.html"> <h2 class="list"> PRIVACY POLICY </h2> </a> </li>
                         </ul>
                     </div> 
                 </div>
@@ -46,9 +47,10 @@
                 <!-- Collapsable Navbar -->
                 <div id="collapsable-nav" class="collapse navbar-collapse">
                     <ul id="nav-list" class="nav navbar-nav navbar-right visible-xs text-center">
-                        <li> <a href="index.html"> <h2> Results </h2> </a> </li>
-                        <li> <a href="entries.html"> <h2> Entries </h2> </a> </li>
-                        <li> <a href="policy.html"> <h2> Privacy Policy </h2> </a> </li>
+                        <li> <a href="index.html"> <h2> RESULTS </h2> </a> </li>
+                        <li> <a href="entries.html"> <h2> ENTRIES </h2> </a> </li>
+                        <li> <a href="submission.html"> <h2> VOTING AREA </h2> </a> </li>
+                        <li> <a href="policy.html"> <h2> PRIVACY POLICY </h2> </a> </li>
                     </ul>
                 </div>
             </nav>
@@ -56,6 +58,7 @@
         
         <!-- Section 1 -->
         <div id="voteContainer">
+            <br>
             <h3 class="section-title text-center"> Voting Form </h3>
 
             <form id="submissionForm">                    
@@ -94,15 +97,29 @@
                 <div id="checklistArea">
 
                 </div>
-                <a id="voteSubmit" class="btn btn-primary" href="#voteContainer"> Submit </a>
+                <div class="text-center">
+                    <a id="voteSubmit" class="btn btn-primary" href="#voteContainer"> Submit </a>
+                </div>  
+                <br>              
             </form>
 
-            <p class="description text-center"> <a href="index.html"> (View to Results Page) </a> </p>            
         </div>
         
-        <p id="userCount"> Users Currently on this Website: <span id="usersConnected"> 0 </span></p>
-        <p class="description"> <a href="policy.html"> View Privacy Policy </a> </p>  
-        <p id="credits" class="description"> Created by: Raphael Dalangin <br> (MCM 3rd Year BS Computer Science) </p>      
+        <!-- Footer -->
+        <footer class="page-footer font-small">
+            <div id="footer">
+                <div id="below">
+                    <div id="bot" class="full">
+                        <div class="col-sm">
+                            <p id="userCount"> <h2 id="count" class="list"> USERS ONLINE:  <span id="usersConnected"> 0 </span> </h2> </p>
+                        </div>
+                        <div class="col-sm">
+                            <a href="policy.html"> <h2 id="privacy" class="list"> PRIVACY POLICY </h2> </a>
+                        </div>                                                                    
+                    </div>
+                </div>                
+            </div>            
+        </footer>
 
         <!-- Scripts -->
         <!-- Boostrap JS Files -->

@@ -3,40 +3,88 @@
     margin: 0;
 }
 
+div#index.container {
+    background: url("../images/logo.png") no-repeat center left;
+    background-color: '263B5B';
+    background-size: 50px;
+    background-position: 30px;
+    /* margin: 10px 15px 10px 15px; */
+}
+
+div#footer.container {
+    background-color: '263B5B';
+}
+
 body {
     font-size: 16px;
     color: #fff;
     background-color: #FFFFFF;
-    font-family: 'Oxygen', sans-serif;
-    /* background-image: url("https://wallpaperset.com/w/full/8/d/7/462766.jpg"); */
+    font-family: 'Lato', sans-serif;
+}
+p.score {
+    font-size: 30px;
+    color: #263B5B;
+    /* color: #C12727; */
+}
+
+/* Grid for results */
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+
+.grid-container2 {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+
+.grid-item {
+    /* background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8); */
+    padding: 10px;
+    font-size: 12px;
+    text-align: center;
 }
 
 #header-nav {
-    background-color: #C0C0C0;
-    border-radius: 0;
-    border: 1px solid black;
+    background-color: #263B5B;
 }
 
-#bot {
-    width: 100;
-    margin-top: 40px;
+#bot {    
+    background-color: #263B5B;
+    width: 100%;
 }
 
-/* #entries {
-    background-color: pink;
-    margin: 30px 20px 30px 20px;
-} */
+#userCount, #privacy{
+    margin-top: 10px;
+    color: #fff;
+    font-size: 12px;
+}
 
-li {
-    margin: 5px 5px 5px 5px;
-    border: 1px solid gray;
-    background-color: lightgray;
+#userCount {
+    text-align: left;
+}
+
+h2#privacy {
+    text-align: right;
+    color: white;
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+h2#count {
+    margin-left: 30px;
 }
 
 #header-nav .container {
-    margin-left: 0;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    /* margin-left: 0;
+    margin-right: 0; */
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 /* Header */
@@ -58,10 +106,21 @@ li {
     border: 1px solid black;
 }
 
+section#a1.title, section#a2.title, section#a3.title {
+    margin-top: 20px;
+}
+
+hr.style1{
+    border-top: 1.5px dashed #8c8b8b;
+	border-bottom: 1.5px dashed #fff;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
 h2 {
-    font-size: 16px;
+    font-size: 12px;
     margin: 0px 0px 0px 0px;
-    color: black;
+    color: white;
 }
 
 h3, h4 {
@@ -69,12 +128,20 @@ h3, h4 {
     color: black;
 }
 
-section {
-    margin: 20px 100px 80px 100px;
-    border: 2px solid black;
-    height: 400px;
-    background-color: lightgray;
-    
+h3#top {
+   margin-top: 20px; 
+}
+
+div#outer {
+    margin: 20px 20px 20px 20px;
+    border-radius: 25px;
+    background-color: lightgray;    
+}
+
+div#outer2 {
+    margin: 20px 5px 20px 5px;
+    border-radius: 25px;
+    background-color: lightgray;    
 }
 
 p {
@@ -83,28 +150,22 @@ p {
     color: black;
 }
 
-#credits {
-    font-size: 12px;
-    text-align: right;
-}
-
-#facSHS, #facC, #ssSHS, #ssC, #vvSHS, #vvC {
-    background-repeat: no-repeat;
-    background-position: bottom right;     
-    background-image: url("https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/929cb090-e779-401a-b06c-c629ff6b0fea/ap-malayancollegesminda/editor_images/logo2_1.png");
-    background-size: 150px;
-}
 #voteContainer {
+    border-radius: 25px;
     margin: 20px 50px 80px 50px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     background-color: lightgray;
 }
 
-fieldset {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    border: 0;
-    border-bottom: 1px solid gray;
+fieldset, fieldset.form-group {
+    border-bottom: 1.5px dashed #8c8b8b;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 50px;
+}
+.col-sm {
+    float: left;
+    width: 50%;
 }
 
 /* Media Queries */
@@ -112,7 +173,11 @@ fieldset {
 @media (min-width: 992px) {
     .col-large {
         float: left;  
-        width: 50%;      
+        width: 33%;      
+    }
+    .col-large2 {
+        float: left;  
+        width: 33%;      
     }
     .full {
         float: left;
@@ -120,11 +185,11 @@ fieldset {
     }
 
     section {
-        margin: 20px 80px 80px 80px;
-        border: 2px solid black;
-        height: 400px;
-        background-color: lightgray;
-        
+        margin: 20px 20px 20px 20px;
+    }
+
+    .grid-container2 {
+        grid-template-columns: auto auto auto;
     }
 
 }
@@ -146,11 +211,11 @@ fieldset {
     }
 
     section {
-        margin: 20px 50px 80px 50px;
-        border: 2px solid black;
-        height: 400px;
-        background-color: lightgray;        
-    }    
+        margin: 20px 30px 40px 30px;     
+    }   
+    .grid-container2 {
+        grid-template-columns: auto auto;
+    } 
 
 }
 
@@ -174,6 +239,10 @@ label, legend, .form-check-label, #emailHelp, #nameHelp {
         float: left;
         width: 100%;
     }  
+    .col-small2 {
+        float: left;
+        width: 75%;
+    }
     .full {
         float: left;
         width: 100%;
@@ -183,9 +252,9 @@ label, legend, .form-check-label, #emailHelp, #nameHelp {
     }
 
     section {
-        margin: 20px 35px 50px 35px;
-        border: 2px solid black;
-        height: 400px;
-        background-color: lightgray;        
+        margin: 20px 35px 50px 35px;       
     }
+    .grid-container2 {
+        grid-template-columns: auto;
+    } 
 }
