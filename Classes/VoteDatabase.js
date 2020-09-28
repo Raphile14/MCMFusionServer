@@ -3,9 +3,11 @@ const fs = require('fs');
 const Entries = require('./Entries.json');
 
 module.exports = class VoteDatabase {
-    constructor(cacheCategories, cacheEntries){
+    constructor(cacheCategories, cacheEntries, shsVoters, cVoters){
         this.cacheCategories = cacheCategories;
         this.cacheEntries = cacheEntries;
+        this.shsVoters = shsVoters;
+        this.cVoters = cVoters;
         this.format = [["email", "name", "voted_team", "date"]];
     }
     // Initialize by Files
@@ -59,12 +61,44 @@ module.exports = class VoteDatabase {
             for (let inner in tempSheetJSONStorage[outer].data) {
                 if (this.cacheEntries[tempSheetJSONStorage[outer].data[inner].voted_team]) {
                     this.cacheEntries[tempSheetJSONStorage[outer].data[inner].voted_team].votes.push(tempSheetJSONStorage[outer].data[inner].email)
+                    if (this.cacheEntries[tempSheetJSONStorage[outer].data[inner].voted_team].data.category.includes('COLLEGE')) {
+                        this.cVoters.push(tempSheetJSONStorage[outer].data[inner].email);
+                    }
+                    else if (this.cacheEntries[tempSheetJSONStorage[outer].data[inner].voted_team].data.category.includes('SHS')) {
+                        this.shsVoters.push(tempSheetJSONStorage[outer].data[inner].email);
+                    }
                     // console.log(this.cacheEntries[tempSheetJSONStorage[outer].data[inner].voted_team].votes.length);
                 }
             }            
         }
+        // console.log(this.cVoters);
+        // console.log(this.shsVoters);
         // console.log(this.cacheCategories);
-        // console.log(this.cacheEntries);
+        console.log(this.cacheEntries);
         // console.log(tempSheetJSONStorage);
+    }
+    submitVote(data) {
+        for (let x = 2; x < data.length; x++) {
+            if (data[x].category.includes("SHS")) {
+                this.shsVoters.push(data[0]);                
+            }
+            else if (data[x].category.includes("COLLEGE")) {
+                this.cVoters.push(data[0]);
+            }
+            this.cacheEntries[data[x].team].votes.push(data[0]);
+            // Save to Excel Database
+            // Get date
+            let today = new Date();
+            let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+
+            let wb = XLSX.readFile("Data/MCMFusionTechnicityVotationLogs.xlsx", {cellDates: true});
+            let oldData = wb.Sheets[data[x].category]
+            let jsonData = XLSX.utils.sheet_to_json(oldData);
+            jsonData.push({email: data[0], name: data[1], voted_team: data[x].team, date: date});
+            let newData = XLSX.utils.json_to_sheet(jsonData);
+            wb.Sheets[data[x].category] = newData; 
+            XLSX.writeFile(wb, "Data/MCMFusionTechnicityVotationLogs.xlsx");            
+        }
     }
 }

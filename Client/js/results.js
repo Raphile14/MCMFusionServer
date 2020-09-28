@@ -10,6 +10,8 @@ socket.emit("getTeams");
 socket.on("receiveTeams", function(data){
     for (let x in data) {
         let tag = document.createElement("P");
+        tag.setAttribute("id", data[x].name);
+        // tag.text = "Team " + data[x].name + ": " + data[x].score;
         let text = document.createTextNode("Team " + data[x].name + ": " + data[x].score);
         tag.appendChild(text);
         document.getElementById(data[x].code).appendChild(tag);
@@ -18,5 +20,7 @@ socket.on("receiveTeams", function(data){
 
 // When someone votes
 socket.on("current", function(data){
-    // document.getElementById(data.name).innerText = data.score;
+    console.log(data);
+    console.log(document.getElementById(data.name).text);
+    document.getElementById(data.name).text = "Team " + data.name + ": " + data.score;
 });

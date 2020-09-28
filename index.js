@@ -10,6 +10,8 @@ const VDatabase = require('./Classes/VoteDatabase.js');
 //////////////////////////////////////
 let cacheCategories = [];
 let cacheEntries = [];
+let shsVoters = [];
+let cVoters = [];
 
 //////////////////////////////////////
 // Initialization
@@ -17,7 +19,7 @@ let cacheEntries = [];
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
-let VoteDatabase = new VDatabase(cacheCategories, cacheEntries);
+let VoteDatabase = new VDatabase(cacheCategories, cacheEntries, shsVoters, cVoters);
 
 //////////////////////////////////////
 // Custom Classes Initialization
@@ -93,7 +95,33 @@ io.on('connection', function(socket){
 
     // Receive Vote
     socket.on("submit", function(data){
-        console.log(data)
+        let status = true;
+        // console.log(data)
+        for (let x = 2; x < data.data.length; x++) {
+            if (data.data[x].category.includes("SHS")) {
+                if (shsVoters.includes(data.data[0])) {
+                    status = false;
+                    break;
+                }
+            }
+            else if (data.data[x].category.includes("COLLEGE")) {
+                if (cVoters.includes(data.data[0])) {
+                    status = false;
+                    break;
+                }
+            }
+        }
+        if (!status) {
+            socket.emit('submitConfirmation', {status: false})
+        }
+        else {
+            socket.emit('submitConfirmation', {status: true})
+            VoteDatabase.submitVote(data.data);
+            for (let x = 2; x < data.data.length; x++) {
+                console.log({name: data.data[x].team, score: cacheEntries[data.data[x].team].votes.length});
+                io.emit("current", {name: data.data[x].team, score: cacheEntries[data.data[x].team].votes.length})
+            }            
+        }
     });
 
     // TODO: CHANGE THIS TO WHEN A VOTE IS CASTED INSTEAD
