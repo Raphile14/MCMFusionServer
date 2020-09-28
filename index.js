@@ -118,7 +118,7 @@ io.on('connection', function(socket){
             socket.emit('submitConfirmation', {status: true})
             VoteDatabase.submitVote(data.data);
             for (let x = 2; x < data.data.length; x++) {
-                console.log({name: data.data[x].team, score: cacheEntries[data.data[x].team].votes.length});
+                // console.log({name: data.data[x].team, score: cacheEntries[data.data[x].team].votes.length});
                 io.emit("current", {name: data.data[x].team, score: cacheEntries[data.data[x].team].votes.length})
             }            
         }

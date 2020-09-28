@@ -20,7 +20,5 @@ socket.on("receiveTeams", function(data){
 
 // When someone votes
 socket.on("current", function(data){
-    console.log(data);
-    console.log(document.getElementById(data.name).text);
-    document.getElementById(data.name).text = "Team " + data.name + ": " + data.score;
+    document.getElementById(data.name).innerHTML = "Team " + data.name + ": " + data.score;
 });
