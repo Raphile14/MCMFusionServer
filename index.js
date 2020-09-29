@@ -145,6 +145,6 @@ io.on('connection', function(socket){
     })
 });
 
-server.listen((process.env.PORT || 5000), function(){
-    console.log("Server Running on Port: " + (process.env.PORT || 5000));
+server.listen((process.env.PORT), function(){
+    console.log("Server Running on Port: " + (process.env.PORT));
 })
