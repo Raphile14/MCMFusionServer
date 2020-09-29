@@ -113,11 +113,24 @@ io.on('connection', function(socket){
         let data = [];
         for (let key in cacheEntries) {
             if (packet.list.includes(cacheEntries[key].data.category)) {
-                data.push({name: key, link: cacheEntries[key].data.link});
+                data.push({name: key, link: cacheEntries[key].data.link, category: cacheEntries[key].data.category});
             }            
         }  
         socket.emit('receiveEntries', {data: data});
         // console.log(data);
+    });
+
+    // Receive Judging Scores from FAC
+    socket.on("fac_judge", function(data){
+        VoteDatabase.submitScoreFAC(data);
+    });
+    // Receive Judging Scores from SS
+    socket.on("ss_judge", function(data){
+        VoteDatabase.submitScoreSS(data);
+    });
+    // Receive Judging Scores from VV
+    socket.on("vv_judge", function(data){
+        VoteDatabase.submitScoreVV(data);
     });
 
     // Emit Teams list

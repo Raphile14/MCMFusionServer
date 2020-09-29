@@ -18,7 +18,7 @@ form.onclick = function() {
     let voteStatus = true;
     let data = [];
     if (document.getElementById('inputEmail').value == "") {
-        document.getElementById('emailHelp').textContent = "Invalid email input!";
+        document.getElementById('emailHelp').textContent = "Error! Email may be invalid, pending, or already used. Please try again in a minute if this is your first time.";
         document.getElementById('emailHelp').style.color = "red";
         emailStatus = false;
     }
@@ -65,9 +65,9 @@ form.onclick = function() {
 
 socket.on("submitConfirmation", function(data) {
     if (data.status) {
-        document.getElementById('emailHelp').textContent = "Success!";
+        document.getElementById('emailHelp').textContent = "Success! Please check your email. (or spam!)";
         document.getElementById('emailHelp').style.color = "green";
-        document.getElementById('nameHelp').textContent = "Success!";
+        document.getElementById('nameHelp').textContent = "Success! Please check your email. (or spam!)";
         document.getElementById('nameHelp').style.color = "green";
         document.getElementById('voteHelp').textContent = "";
         document.getElementById('voteHelp').style.color = "green";

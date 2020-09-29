@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title> MCM Fusion: Technicity Show Stopper Entries </title>        
+        <title> MCM Fusion: Technicity Vattle of the Vands Judging </title>        
         <!-- Title Icon -->
         <link rel="icon" href="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/929cb090-e779-401a-b06c-c629ff6b0fea/ap-malayancollegesminda/editor_images/logo2_1.png" type="image/x-icon">
         <!-- Bootstrap CSS -->
@@ -36,10 +36,9 @@
                     <!-- Navbar Front -->
                     <div id="" class="float-right visible-sm visible-md visible-lg visible-xl">
                         <ul id="nav-list" class="nav navbar-nav navbar-right text-center">
-                            <li> <a href="index.html"> <h2 class="list"> RESULTS </h2> </a> </li>
-                            <li> <a href="entries.html"> <h2 class="list"> ENTRIES </h2> </a> </li>
-                            <li> <a href="submission.html"> <h2 class="list"> VOTING AREA </h2> </a> </li>
-                            <li> <a href="policy.html"> <h2 class="list"> PRIVACY POLICY </h2> </a> </li>
+                            <li> <a href="judging_fac.html"> <h2 class="list"> FAC </h2> </a> </li>
+                            <li> <a href="judging_ss.html"> <h2 class="list"> SS </h2> </a> </li>
+                            <li> <a href="judging_vv.html"> <h2 class="list"> VV </h2> </a> </li>
                         </ul>
                     </div>
                 </div>
@@ -47,42 +46,38 @@
                 <!-- Collapsable Navbar -->
                 <div id="collapsable-nav" class="collapse navbar-collapse">
                     <ul id="nav-list" class="nav navbar-nav navbar-right visible-xs text-center">
-                        <li> <a href="index.html"> <h2> RESULTS </h2> </a> </li>
-                        <li> <a href="entries.html"> <h2> ENTRIES </h2> </a> </li>
-                        <li> <a href="submission.html"> <h2> VOTING AREA </h2> </a> </li>
-                        <li> <a href="policy.html"> <h2> PRIVACY POLICY </h2> </a> </li>
+                        <li> <a href="judging_fac.html"> <h2> FAC </h2> </a> </li>
+                        <li> <a href="judging_ss.html"> <h2> SS </h2> </a> </li>
+                        <li> <a href="judging_vv.html"> <h2> VV AREA </h2> </a> </li>
                     </ul>
                 </div>
             </nav>
         </header>              
         
         <!-- Section 1 -->
-        <div class="">
-            <div id="outer">
-                <br>
+        <form>
+            <div>
                 <section class="title">
-                    <h3 id="a1" id="top" class="text-center">  Show Stopper </h3>
-                </section>                                    
-                <div class="text-center" style="margin: 20px 20px 20px 20px;">
-                    <button id="b1" type="button" class="btn btn-success" onclick="buttonPres(1)"> All </button>
-                    <button id="b2" type="button" class="btn btn-primary" onclick="buttonPres(2)"> College </button>
-                    <button id="b3" type="button" class="btn btn-primary" onclick="buttonPres(3)"> SHS </button>                    
-                </div>  
-                <hr class="style1">
-                <p class="text-center">
-                    Express yourself through dance and be hailed as the Showstopper Champion!
-                </p>
-                <p class="description text-center"> <a href="submission.html" class="btn btn-primary"> VOTE HERE </a> </p>                
+                    <h3 id="a1" id="top" class="text-center">  Vattle of the Vands </h3>                    
+                </section>                                     
+                <hr class="style1">                      
+                <div class="text-center">
+                    <img src="./images/vv.PNG" width="496" height="336" alt="FAC Criteria">
+                </div>                              
+                <div id="entries" class="grid-container3">
+
+                </div>
+                <div class="text-center">   
+                    <div class="form-group">
+                        <label for="inputName"> Name of Judge  </label>
+                        <input type="text" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Enter name" required>
+                    </div>                   
+                    <button id="b3" type="button" class="btn btn-primary" onclick="buttonPres()"> SUBMIT SCORES </button>
+                </div>                
                 <br>
             </div>            
-        </div>        
-
-        <section id="entries" class="grid-container2">
-
-        </section>
+        </form>
          
-        <p class="description text-center"> <a href="entries.html"> (Back to Categories) </a> </p>
-        
         <!-- Footer -->
         <footer class="page-footer font-small">
             <div id="footer">
@@ -107,6 +102,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
         <!-- Local Scripts -->
         <!-- <script src="./js/utility.js"></script>  -->
-        <script src="./js/ss.js"></script>
+        <script src="./js/judging_vv.js"></script>
     </body>
 </html>

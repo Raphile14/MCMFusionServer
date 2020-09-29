@@ -72,4 +72,18 @@ module.exports = class VoteDatabase {
             io.emit("current", {name: data[x].team, score: this.cacheEntries[data[x].team].votes.length});
         }
     }
+
+    // Submit Judge Score
+    async submitScoreFAC(data) {        
+        const sheet = this.doc.sheetsByIndex[6];
+        await sheet.addRows(data);
+    }
+    async submitScoreSS(data) {        
+        const sheet = this.doc.sheetsByIndex[7];
+        await sheet.addRows(data);
+    }
+    async submitScoreVV(data) {        
+        const sheet = this.doc.sheetsByIndex[8];
+        await sheet.addRows(data);
+    }
 }
