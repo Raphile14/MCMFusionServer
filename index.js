@@ -46,6 +46,7 @@ app.get('/', function(req, res){
 // Email Confirmation
 app.get('/confirmation/:id/:category/:encryptedLink', function(req, res){  
     let socket;
+    let pending = true;
     if (req.params.id)  {
         socket = connectedSockets[req.params.id];
     }    
@@ -54,12 +55,14 @@ app.get('/confirmation/:id/:category/:encryptedLink', function(req, res){
     if (req.params.category == "SHS") {
         if (pending_shsVoters[decryptedData[0]]) {
             status = true;
+            pending = false;
             delete pending_shsVoters[decryptedData[0]];
         }
     }
     else if (req.params.category == "COLLEGE"){
         if (pending_cVoters[decryptedData[0]]) {
             status = true;
+            pending = false;
             delete pending_cVoters[decryptedData[0]];
         }
     }
@@ -74,7 +77,12 @@ app.get('/confirmation/:id/:category/:encryptedLink', function(req, res){
             socket.emit('submitConfirmation', {status: false});
         }        
     }
-    res.redirect(req.baseUrl + '/confirmation.html');      
+    if (!pending) {
+        res.redirect(req.baseUrl + '/confirmation.html');      
+    }    
+    else {
+        res.redirect(req.baseUrl + '/confirmation_error.html');
+    }
 });
 
 //////////////////////////////////////
