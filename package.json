@@ -18,7 +18,11 @@
   "homepage": "https://github.com/Raphile14/MCMFusionServer#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "google-spreadsheet": "^3.0.13",
     "socket.io": "^2.3.0",
     "xlsx": "^0.16.7"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   }
 }

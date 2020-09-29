@@ -120,7 +120,7 @@ io.on('connection', function(socket){
         }
         else {
             socket.emit('submitConfirmation', {status: true})
-            VoteDatabase.submitVote(data.data);
+            VoteDatabase.submitVote(data.data, io);
             for (let x = 2; x < data.data.length; x++) {
                 // console.log({name: data.data[x].team, score: cacheEntries[data.data[x].team].votes.length});
                 io.emit("current", {name: data.data[x].team, score: cacheEntries[data.data[x].team].votes.length})
@@ -146,5 +146,5 @@ io.on('connection', function(socket){
 });
 
 server.listen((process.env.PORT || 5000), function(){
-    console.log("Server Running on Port: " + (process.env.PORT || 5000));
+    console.log("Server Running on Port: " + (process.env.PORT));
 })

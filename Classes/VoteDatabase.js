@@ -1,6 +1,5 @@
-const XLSX = require('xlsx');
-const fs = require('fs');
 const Entries = require('./Entries.json');
+const {GoogleSpreadsheet} = require('google-spreadsheet');
 
 module.exports = class VoteDatabase {
     constructor(cacheCategories, cacheEntries, shsVoters, cVoters){
@@ -9,9 +8,21 @@ module.exports = class VoteDatabase {
         this.shsVoters = shsVoters;
         this.cVoters = cVoters;
         this.format = [["email", "name", "voted_team", "date"]];
+        this.doc;
     }
     // Initialize by Files
-    init() {
+    async init() {
+        //////////////////////////////////////
+        // Access Google Drive Database
+        //////////////////////////////////////
+        this.doc = new GoogleSpreadsheet(process.env.GOOGLE_FILE_LINK);
+        // use service account creds
+        await this.doc.useServiceAccountAuth({
+            client_email: (process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL),
+            private_key: (process.env.GOOGLE_PRIVATE_KEY),
+        });
+         // loads document properties and worksheets
+        await this.doc.loadInfo();
         //////////////////////////////////////
         // Read Entries.json
         //////////////////////////////////////
@@ -23,61 +34,25 @@ module.exports = class VoteDatabase {
         }
 
         //////////////////////////////////////
-        // Check and Create Excel Database
-        //////////////////////////////////////
-        try {
-            if (!fs.existsSync("./Data/MCMFusionTechnicityVotationLogs.xlsx")) {
-                console.log("Database File Does not Exists");
-                let workbook = XLSX.utils.book_new(); 
-                workbook.Props = {Title: "MCM Fusion: Technicity Votation Logs", Subject: "Voting Logs", Author: "Raphael Dalangin"}                
-                // Convert format to xlsx compatible format
-                let ws = XLSX.utils.aoa_to_sheet(this.format);
-                for (let sheets in this.cacheCategories) {
-                    workbook.SheetNames.push(this.cacheCategories[sheets]);
-                    workbook.Sheets[this.cacheCategories[sheets]] = ws;
-                }              
-                XLSX.writeFile(workbook, "Data/MCMFusionTechnicityVotationLogs.xlsx");
-                console.log("Database File Successfully Created");                
-            }
-            else {
-                console.log("Database File Already Exists!")
-            }
-        }
-        catch (err) {
-            console.log(err);
-        }
-
-        //////////////////////////////////////
         // Read Excel Database and Update Vote standing
-        //////////////////////////////////////
-        // Read Data
-        let tempSheetJSONStorage = [];
-        let wb = XLSX.readFile("Data/MCMFusionTechnicityVotationLogs.xlsx", {cellDates: true});
+        //////////////////////////////////////        
         for (let x in this.cacheCategories) {
-            tempSheetJSONStorage.push({category: this.cacheCategories[x], data: XLSX.utils.sheet_to_json(wb.Sheets[this.cacheCategories[x]])})
-        }
-        // Update standings
-        for (let outer in tempSheetJSONStorage) {
-            for (let inner in tempSheetJSONStorage[outer].data) {
-                if (this.cacheEntries[tempSheetJSONStorage[outer].data[inner].voted_team]) {
-                    this.cacheEntries[tempSheetJSONStorage[outer].data[inner].voted_team].votes.push(tempSheetJSONStorage[outer].data[inner].email)
-                    if (this.cacheEntries[tempSheetJSONStorage[outer].data[inner].voted_team].data.category.includes('COLLEGE')) {
-                        this.cVoters.push(tempSheetJSONStorage[outer].data[inner].email);
-                    }
-                    else if (this.cacheEntries[tempSheetJSONStorage[outer].data[inner].voted_team].data.category.includes('SHS')) {
-                        this.shsVoters.push(tempSheetJSONStorage[outer].data[inner].email);
-                    }
-                    // console.log(this.cacheEntries[tempSheetJSONStorage[outer].data[inner].voted_team].votes.length);
+            const sheet = this.doc.sheetsByIndex[this.cacheCategories.indexOf(this.cacheCategories[x])];
+            const rows = await sheet.getRows();
+            for (let y in rows) {
+                this.cacheEntries[rows[y].voted_team].votes.push(rows[y].email);
+                // Store votes to cache
+                if (this.cacheCategories[x].includes("COLLEGE")) {
+                    this.cVoters.push(rows[y].email);
                 }
-            }            
+                else if (this.cacheCategories[x].includes("SHS")) {
+                    this.shsVoters.push(rows[y].email);
+                }                
+            }    
+            console.log("Sheet " + sheet.title + " loaded successfully");        
         }
-        // console.log(this.cVoters);
-        // console.log(this.shsVoters);
-        // console.log(this.cacheCategories);
-        // console.log(this.cacheEntries);
-        // console.log(tempSheetJSONStorage);
     }
-    submitVote(data) {
+    async submitVote(data, io) {
         for (let x = 2; x < data.length; x++) {
             if (data[x].category.includes("SHS")) {
                 this.shsVoters.push(data[0]);                
@@ -86,19 +61,15 @@ module.exports = class VoteDatabase {
                 this.cVoters.push(data[0]);
             }
             this.cacheEntries[data[x].team].votes.push(data[0]);
+
             // Save to Excel Database
             // Get date
             let today = new Date();
             let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-
-
-            let wb = XLSX.readFile("Data/MCMFusionTechnicityVotationLogs.xlsx", {cellDates: true});
-            let oldData = wb.Sheets[data[x].category]
-            let jsonData = XLSX.utils.sheet_to_json(oldData);
-            jsonData.push({email: data[0], name: data[1], voted_team: data[x].team, date: date});
-            let newData = XLSX.utils.json_to_sheet(jsonData);
-            wb.Sheets[data[x].category] = newData; 
-            XLSX.writeFile(wb, "Data/MCMFusionTechnicityVotationLogs.xlsx");            
+            // Append Data to sheet
+            const sheet = this.doc.sheetsByIndex[this.cacheCategories.indexOf(data[x].category)];
+            await sheet.addRow({email: data[0], name: data[1], voted_team: data[x].team, date: date});    
+            io.emit("current", {name: data[x].team, score: this.cacheEntries[data[x].team].votes.length});
         }
     }
 }
