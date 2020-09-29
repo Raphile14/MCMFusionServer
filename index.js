@@ -25,7 +25,7 @@ const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 let VoteDatabase = new VDatabase(cacheCategories, cacheEntries, shsVoters, cVoters);
-let EmailReceipt = new EReceipt(urlCrypt);
+let EmailReceipt = new EReceipt();
 
 //////////////////////////////////////
 // Custom Classes Initialization

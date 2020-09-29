@@ -1,11 +1,10 @@
 const nodemailer = require('nodemailer');
-const urlCrypt = require('url-crypt');
 
 module.exports = class EmailReceipt {
-    constructor(urlCrypt) {
-        this.urlCrypt;
+    constructor() {
         this.transporter = nodemailer.createTransport({
-            service: 'gmail',
+            host: 'smtp.office365.com',
+            port: 587,
             auth: {
                 user: process.env.RECEIPT_EMAIL,
                 pass: process.env.RECEIPT_PASS
@@ -15,6 +14,9 @@ module.exports = class EmailReceipt {
     sendEmail(id, data, encryptedLink) {        
         let arr = data[2].category.split(" ");
         let category = arr[0];
+        let text = 'Hi, ' + data[1] + '!\n\nThank you for placing your votes on MCM Fusion: Technicity’s event.\n\n'
+        +'For your reference, here is a voting receipt:\n' + data[2].category + ': ' + data[2].team + '\n' + data[3].category + ': ' + data[3].team + '\n' + data[4].category + ': ' + data[4].team 
+        + '\n\n' + 'To finalize your vote, please click on this link: https://mcmfusionvotationbot.herokuapp.com/confirmation/'+id+'/'+category+'/'+encryptedLink;
         let message = 
         '<h1> Hi, ' + data[1] + '! </h1> <br>'
         + 'Thank you for placing your votes on MCM Fusion: Technicity’s event. <br> <br>' 
@@ -36,7 +38,8 @@ module.exports = class EmailReceipt {
             from: process.env.RECEIPT_EMAIL,
             to: data[0],
             subject: 'MCM Fusion Voting Confirmation and Receipt',
-            html: message            
+            html: message,
+            text: text
         }
         this.transporter.sendMail(mailOptions, function(err, data){
             if (err) {
@@ -44,8 +47,9 @@ module.exports = class EmailReceipt {
                 return false;
             }
             else {
+                console.log("success");
                 return true;
             }
-        });
+        });            
     }
 }
