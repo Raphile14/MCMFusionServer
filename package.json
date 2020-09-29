@@ -19,7 +19,9 @@
   "dependencies": {
     "express": "^4.17.1",
     "google-spreadsheet": "^3.0.13",
+    "nodemailer": "^6.4.11",
     "socket.io": "^2.3.0",
+    "url-crypt": "^1.2.1",
     "xlsx": "^0.16.7"
   },
   "devDependencies": {

@@ -4,6 +4,8 @@
 const express = require('express');
 const path = require('path');
 const VDatabase = require('./Classes/VoteDatabase.js');
+const EReceipt = require('./Classes/EmailReceipt.js');
+const urlCrypt = require('url-crypt')(process.env.LINK_SECRET);
 
 //////////////////////////////////////
 // CACHES
@@ -12,6 +14,9 @@ let cacheCategories = [];
 let cacheEntries = [];
 let shsVoters = [];
 let cVoters = [];
+let pending_shsVoters = [];
+let pending_cVoters = [];
+let connectedSockets = [];
 
 //////////////////////////////////////
 // Initialization
@@ -20,6 +25,7 @@ const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 let VoteDatabase = new VDatabase(cacheCategories, cacheEntries, shsVoters, cVoters);
+let EmailReceipt = new EReceipt(urlCrypt);
 
 //////////////////////////////////////
 // Custom Classes Initialization
@@ -37,10 +43,31 @@ app.get('/', function(req, res){
     res.sendFile(path.join(__dirname, 'Client', 'index.html'));    
 });
 
-// Make Database file downloadable
-app.get('/download', function(req, res){
-    const file = `${__dirname}/Data/MCMFusionTechnicityVotationLogs.xlsx`;
-    res.download(file);
+// Email Confirmation
+app.get('/confirmation/:id/:category/:encryptedLink', function(req, res){    
+    let socket = connectedSockets[req.params.id];
+    let decryptedData = urlCrypt.decryptObj(req.params.encryptedLink);
+    let status = false;
+    if (req.params.category == "SHS") {
+        if (pending_shsVoters[decryptedData[0]]) {
+            status = true;
+            delete pending_shsVoters[decryptedData[0]];
+        }
+    }
+    else if (req.params.category == "COLLEGE"){
+        if (pending_cVoters[decryptedData[0]]) {
+            status = true;
+            delete pending_cVoters[decryptedData[0]];
+        }
+    }
+    if (status) {
+        socket.emit('submitConfirmation', {status: true}); 
+        VoteDatabase.submitVote(decryptedData, io);
+    }
+    else {
+        socket.emit('submitConfirmation', {status: false});
+    }
+    res.redirect(req.baseUrl + '/confirmation.html');      
 });
 
 //////////////////////////////////////
@@ -50,6 +77,7 @@ app.get('/download', function(req, res){
 let connectedUsers = 0; // counts how many users are connected to the website
 // Socket connection
 io.on('connection', function(socket){
+    connectedSockets[socket.id] = socket;    
     connectedUsers++;
 
     // Emit Updated Player Count
@@ -114,17 +142,33 @@ io.on('connection', function(socket){
                     break;
                 }
             }
-        }
+        }        
         if (!status) {
             socket.emit('submitConfirmation', {status: false})
         }
         else {
-            socket.emit('submitConfirmation', {status: true})
-            VoteDatabase.submitVote(data.data, io);
-            for (let x = 2; x < data.data.length; x++) {
-                // console.log({name: data.data[x].team, score: cacheEntries[data.data[x].team].votes.length});
-                io.emit("current", {name: data.data[x].team, score: cacheEntries[data.data[x].team].votes.length})
-            }            
+            if (data.data[2].category.includes("COLLEGE")) {
+                if (pending_cVoters[data.data[0]]) {
+                    socket.emit('submitConfirmation', {status: false})
+                    status = false;
+                }
+                else {
+                    pending_cVoters[data.data[0]] = "Pending";
+                }
+            }
+            else if (data.data[2].category.includes("SHS")) {
+                if (pending_shsVoters[data.data[0]]) {
+                    socket.emit('submitConfirmation', {status: false})
+                    status = false;
+                }
+                else {
+                    pending_shsVoters[data.data[0]] = "Pending";
+                }
+            }                        
+        }
+        if (status) {
+            let encryptedLink = urlCrypt.cryptObj(data.data);
+            EmailReceipt.sendEmail(socket.id, data.data, encryptedLink);
         }
     });
 
@@ -141,6 +185,7 @@ io.on('connection', function(socket){
     // On Connected User disconnection
     socket.on('disconnect', function(){
         connectedUsers--;
+        delete connectedSockets[socket.id];
         io.emit('connectedUsers', {number: connectedUsers});
     })
 });

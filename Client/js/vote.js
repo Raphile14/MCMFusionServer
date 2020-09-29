@@ -53,6 +53,12 @@ form.onclick = function() {
         data.unshift(document.getElementById('inputName').value);
         data.unshift(document.getElementById('inputEmail').value);        
         socket.emit("submit", {data: data});
+        document.getElementById('emailHelp').textContent = "Please check your email! Or spams!";
+        document.getElementById('emailHelp').style.color = "green";
+        document.getElementById('nameHelp').textContent = "Please check your email! Or spams!";
+        document.getElementById('nameHelp').style.color = "green";
+        document.getElementById('voteHelp').textContent = "";
+        document.getElementById('voteHelp').style.color = "green";
     }    
     console.log(data);    
 }
@@ -67,8 +73,12 @@ socket.on("submitConfirmation", function(data) {
         document.getElementById('voteHelp').style.color = "green";
     }
     else {
-        document.getElementById('emailHelp').textContent = "Invalid Email! Email already used or non existing";
+        document.getElementById('emailHelp').textContent = "Invalid Email! Email already used, pending, or non existing!";
         document.getElementById('emailHelp').style.color = "red";
+        document.getElementById('nameHelp').textContent = "Oh no!";
+        document.getElementById('nameHelp').style.color = "red";
+        document.getElementById('voteHelp').textContent = "";
+        document.getElementById('voteHelp').style.color = "red";
     }
 });
 
