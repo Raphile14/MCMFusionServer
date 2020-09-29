@@ -44,8 +44,11 @@ app.get('/', function(req, res){
 });
 
 // Email Confirmation
-app.get('/confirmation/:id/:category/:encryptedLink', function(req, res){    
-    let socket = connectedSockets[req.params.id];
+app.get('/confirmation/:id/:category/:encryptedLink', function(req, res){  
+    let socket;
+    if (req.params.id)  {
+        socket = connectedSockets[req.params.id];
+    }    
     let decryptedData = urlCrypt.decryptObj(req.params.encryptedLink);
     let status = false;
     if (req.params.category == "SHS") {
@@ -61,11 +64,15 @@ app.get('/confirmation/:id/:category/:encryptedLink', function(req, res){
         }
     }
     if (status) {
-        socket.emit('submitConfirmation', {status: true}); 
+        if (socket) {
+            socket.emit('submitConfirmation', {status: true}); 
+        }        
         VoteDatabase.submitVote(decryptedData, io);
     }
     else {
-        socket.emit('submitConfirmation', {status: false});
+        if (socket) {
+            socket.emit('submitConfirmation', {status: false});
+        }        
     }
     res.redirect(req.baseUrl + '/confirmation.html');      
 });
