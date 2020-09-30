@@ -25,12 +25,12 @@ function buttonPres () {
         let virtual_presence = document.getElementById(team+'1').value;
         let appearance = document.getElementById(team+'2').value;
         document.getElementById(team+'0').style.borderColor = 'green';
-        if (music.length == 0 || music > 20 || music < 0) {
+        if (music.length == 0 || music > 40 || music < 0) {
             status = false;
             document.getElementById(team+'0').style.borderColor = 'red';
         }
         document.getElementById(team+'1').style.borderColor = 'green';
-        if (virtual_presence.length == 0 || virtual_presence > 20 || virtual_presence < 0) {
+        if (virtual_presence.length == 0 || virtual_presence > 30 || virtual_presence < 0) {
             status = false;
             document.getElementById(team+'1').style.borderColor = 'red';
         }

@@ -45,7 +45,7 @@
     "College Entry 2 (Solo) | Pagsaligan, Renzo": {
         "category": "COLLEGE Show Stopper",
         "code": "ssC",
-        "link": "https://www.youtube.com/embed/4JBsrYStaU8&t=4s"
+        "link": "https://www.youtube.com/embed/4JBsrYStaU8"
     },
 
 
@@ -70,6 +70,11 @@
         "code": "vvSHS",
         "link": "https://www.youtube.com/embed/1j_BIm1i1h8"
     },
+    "VotV SHS Entry 5": {
+        "category": "SHS Vattle of the Vands",
+        "code": "vvSHS",
+        "link": "https://www.youtube.com/embed/dM3vzalHrmI"
+    },
     "VotV College Entry 1": {
         "category": "COLLEGE Vattle of the Vands",
         "code": "vvC",
@@ -79,5 +84,10 @@
         "category": "COLLEGE Vattle of the Vands",
         "code": "vvC",
         "link": "https://www.youtube.com/embed/SK9lX27JPC4"
+    },
+    "VotV College Entry 3": {
+        "category": "COLLEGE Vattle of the Vands",
+        "code": "vvC",
+        "link": "https://www.youtube.com/embed/to8hMb7vrlQ"
     }
 }

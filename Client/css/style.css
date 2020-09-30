@@ -193,6 +193,11 @@ fieldset, fieldset.form-group {
     width: 50%;
 }
 
+.col-sm2 {
+    float: left;
+    width: 33%;
+}
+
 .grid-container4 {
     grid-template-columns: auto;
     margin: 20px 20px 20px 20px;
