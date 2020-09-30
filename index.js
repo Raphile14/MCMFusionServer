@@ -153,24 +153,24 @@ io.on('connection', function(socket){
         socket.emit('receiveEntries', {data: data});
     });
 
-    // Receive Judging Scores from MM
-    socket.on("mm_judge", function(data){
-        VoteDatabase.submitScoreMM(data);
-    });
+    // // Receive Judging Scores from MM
+    // socket.on("mm_judge", function(data){
+    //     VoteDatabase.submitScoreMM(data);
+    // });
 
-    // Receive Judging Scores from FAC
-    socket.on("fac_judge", function(data){
-        VoteDatabase.submitScoreFAC(data);
-    });
-    // Receive Judging Scores from SS
-    socket.on("ss_judge", function(data){
-        VoteDatabase.submitScoreSS(data);
-        // console.log(data);
-    });
-    // Receive Judging Scores from VV
-    socket.on("vv_judge", function(data){
-        VoteDatabase.submitScoreVV(data);
-    });
+    // // Receive Judging Scores from FAC
+    // socket.on("fac_judge", function(data){
+    //     VoteDatabase.submitScoreFAC(data);
+    // });
+    // // Receive Judging Scores from SS
+    // socket.on("ss_judge", function(data){
+    //     VoteDatabase.submitScoreSS(data);
+    //     // console.log(data);
+    // });
+    // // Receive Judging Scores from VV
+    // socket.on("vv_judge", function(data){
+    //     VoteDatabase.submitScoreVV(data);
+    // });
 
     // Emit Teams list
     socket.on("get", function(data){

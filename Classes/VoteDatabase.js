@@ -78,42 +78,42 @@ module.exports = class VoteDatabase {
         //     console.log("Sheet " + sheet.title + " loaded successfully");  
         // }        
     }
-    async submitVote(data, io) {
-        for (let x = 2; x < data.length; x++) {
-            if (data[x].category.includes("SHS")) {
-                this.shsVoters.push(data[0]);                
-            }
-            else if (data[x].category.includes("COLLEGE")) {
-                this.cVoters.push(data[0]);
-            }
-            this.cacheEntries[data[x].team].votes.push(data[0]);
+    // async submitVote(data, io) {
+    //     for (let x = 2; x < data.length; x++) {
+    //         if (data[x].category.includes("SHS")) {
+    //             this.shsVoters.push(data[0]);                
+    //         }
+    //         else if (data[x].category.includes("COLLEGE")) {
+    //             this.cVoters.push(data[0]);
+    //         }
+    //         this.cacheEntries[data[x].team].votes.push(data[0]);
 
-            // Save to Excel Database
-            // Get date
-            let today = new Date();
-            let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-            // Append Data to sheet
-            const sheet = this.doc.sheetsByIndex[this.cacheCategories.indexOf(data[x].category)];
-            await sheet.addRow({email: data[0], name: data[1], voted_team: data[x].team, date: date});    
-            io.emit("current", {name: data[x].team, score: this.cacheEntries[data[x].team].votes.length});
-        }
-    }
+    //         // Save to Excel Database
+    //         // Get date
+    //         let today = new Date();
+    //         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    //         // Append Data to sheet
+    //         const sheet = this.doc.sheetsByIndex[this.cacheCategories.indexOf(data[x].category)];
+    //         await sheet.addRow({email: data[0], name: data[1], voted_team: data[x].team, date: date});    
+    //         io.emit("current", {name: data[x].team, score: this.cacheEntries[data[x].team].votes.length});
+    //     }
+    // }
 
     // Submit Judge Score
-    async submitScoreFAC(data) {        
-        const sheet = this.doc.sheetsByIndex[6];
-        await sheet.addRows(data);
-    }
-    async submitScoreSS(data) {        
-        const sheet = this.doc.sheetsByIndex[7];
-        await sheet.addRows(data);
-    }
-    async submitScoreVV(data) {        
-        const sheet = this.doc.sheetsByIndex[8];
-        await sheet.addRows(data);
-    }
-    async submitScoreMM(data) {        
-        const sheet = this.doc.sheetsByIndex[9];
-        await sheet.addRows(data);
-    }
+    // async submitScoreFAC(data) {        
+    //     const sheet = this.doc.sheetsByIndex[6];
+    //     await sheet.addRows(data);
+    // }
+    // async submitScoreSS(data) {        
+    //     const sheet = this.doc.sheetsByIndex[7];
+    //     await sheet.addRows(data);
+    // }
+    // async submitScoreVV(data) {        
+    //     const sheet = this.doc.sheetsByIndex[8];
+    //     await sheet.addRows(data);
+    // }
+    // async submitScoreMM(data) {        
+    //     const sheet = this.doc.sheetsByIndex[9];
+    //     await sheet.addRows(data);
+    // }
 }
