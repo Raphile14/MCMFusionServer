@@ -192,52 +192,52 @@ io.on('connection', function(socket){
         socket.emit('receiveData', {data: query})
     });
 
-    // Receive Vote
-    socket.on("submit", function(data){
-        let status = true;
-        // console.log(data)
-        for (let x = 2; x < data.data.length; x++) {
-            if (data.data[x].category.includes("SHS")) {
-                if (shsVoters.includes(data.data[0])) {
-                    status = false;
-                    break;
-                }
-            }
-            else if (data.data[x].category.includes("COLLEGE")) {
-                if (cVoters.includes(data.data[0])) {
-                    status = false;
-                    break;
-                }
-            }
-        }        
-        if (!status) {
-            socket.emit('submitConfirmation', {status: false})
-        }
-        else {
-            if (data.data[2].category.includes("COLLEGE")) {
-                if (pending_cVoters[data.data[0]]) {
-                    socket.emit('submitConfirmation', {status: false})
-                    status = false;
-                }
-                else {
-                    pending_cVoters[data.data[0]] = "Pending";
-                }
-            }
-            else if (data.data[2].category.includes("SHS")) {
-                if (pending_shsVoters[data.data[0]]) {
-                    socket.emit('submitConfirmation', {status: false})
-                    status = false;
-                }
-                else {
-                    pending_shsVoters[data.data[0]] = "Pending";
-                }
-            }                        
-        }
-        if (status) {
-            let encryptedLink = urlCrypt.cryptObj(data.data);
-            EmailReceipt.sendEmail(socket.id, data.data, encryptedLink);
-        }
-    });
+    // // Receive Vote
+    // socket.on("submit", function(data){
+    //     let status = true;
+    //     // console.log(data)
+    //     for (let x = 2; x < data.data.length; x++) {
+    //         if (data.data[x].category.includes("SHS")) {
+    //             if (shsVoters.includes(data.data[0])) {
+    //                 status = false;
+    //                 break;
+    //             }
+    //         }
+    //         else if (data.data[x].category.includes("COLLEGE")) {
+    //             if (cVoters.includes(data.data[0])) {
+    //                 status = false;
+    //                 break;
+    //             }
+    //         }
+    //     }        
+    //     if (!status) {
+    //         socket.emit('submitConfirmation', {status: false})
+    //     }
+    //     else {
+    //         if (data.data[2].category.includes("COLLEGE")) {
+    //             if (pending_cVoters[data.data[0]]) {
+    //                 socket.emit('submitConfirmation', {status: false})
+    //                 status = false;
+    //             }
+    //             else {
+    //                 pending_cVoters[data.data[0]] = "Pending";
+    //             }
+    //         }
+    //         else if (data.data[2].category.includes("SHS")) {
+    //             if (pending_shsVoters[data.data[0]]) {
+    //                 socket.emit('submitConfirmation', {status: false})
+    //                 status = false;
+    //             }
+    //             else {
+    //                 pending_shsVoters[data.data[0]] = "Pending";
+    //             }
+    //         }                        
+    //     }
+    //     if (status) {
+    //         let encryptedLink = urlCrypt.cryptObj(data.data);
+    //         EmailReceipt.sendEmail(socket.id, data.data, encryptedLink);
+    //     }
+    // });
 
     // TODO: CHANGE THIS TO WHEN A VOTE IS CASTED INSTEAD
     // Update standings

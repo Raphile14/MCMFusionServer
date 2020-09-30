@@ -59,11 +59,13 @@
         <!-- Section 1 -->
         <div id="voteContainer">
             <br>
-            <h3 class="section-title text-center"> Voting Form </h3>
-            <p class="text-center" style="color: red;"> <strong> <i> After submitting, please check your email to confirm your vote. </i> </strong> </p>
+            <!-- <h3 class="section-title text-center"> Voting Form </h3> -->
+            <p class="text-center" style="color: red;"> <strong> <i> The voting section is now closed! </i> </strong> </p>            
+            <!-- <p class="text-center" style="color: red;"> <strong> <i> After submitting, please check your email to confirm your vote. </i> </strong> </p> -->
+            
 
             <form id="submissionForm">                    
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="inputEmail"> Email Address  </label>
                     <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" required>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else. </small>
@@ -72,13 +74,13 @@
                     <label for="inputName"> Name of Voter  </label>
                     <input type="text" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Enter name" required>
                     <small id="nameHelp" class="form-text text-muted">We'll never share your name with anyone else. </small>
-                </div>
+                </div> -->
 
                 <!-- Department Selection -->
                 <fieldset class="form-group">
                     <div class="row">
-                        <label for="dept" class="col-form-label col-sm-2"> Department  </label>   
-                        <div class="col-sm-10">
+                        <!-- <label for="dept" class="col-form-label col-sm-2"> Department  </label>    -->
+                        <!-- <div class="col-sm-10">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="gridRadios" id="selectSHS" value="shs" onclick="get('SHS')" checked>
                                 <label class="form-check-label" for="selectSHS">
@@ -91,19 +93,19 @@
                                     College
                                 </label>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </fieldset>
                 <small id="voteHelp" class="form-text text-muted"></small>
-                <div id="checklistArea">
+                <p class="description text-center"> <a href="index.html"> (Back to Results Page) </a> </p>  
+                <!-- <div id="checklistArea">
 
-                </div>
-                <div class="text-center">
+                </div> -->
+                <!-- <div class="text-center">
                     <a id="voteSubmit" class="btn btn-primary" href="#voteContainer"> Submit </a>
-                </div>  
+                </div>   -->
                 <br>              
             </form>
-
         </div>
         
         <!-- Footer -->
@@ -133,6 +135,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
         <!-- Local Scripts -->
         <!-- <script src="./js/utility.js"></script>  -->
-        <script src="./js/vote.js"></script>
+        <script src="./js/vote_end.js"></script>
     </body>
 </html>
