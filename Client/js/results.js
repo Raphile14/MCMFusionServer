@@ -60,7 +60,7 @@ socket.on("current", function(data){
         let highestElement = '';
         for (let y in container[x]) {
             let docu = document.getElementById(container[x][y]).innerHTML;
-            if (docu > highestNumber) {
+            if (parseInt(docu) > highestNumber) {
                 highestNumber = docu;
                 highestElement = container[x][y];
             }
