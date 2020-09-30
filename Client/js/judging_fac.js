@@ -25,7 +25,6 @@ function buttonPres () {
         let creativity = document.getElementById(team+'1').value;
         let resourcefulness = document.getElementById(team+'2').value;
         let performance = document.getElementById(team+'3').value;
-        let crowd_favorite = document.getElementById(team+'4').value;
         document.getElementById(team+'0').style.borderColor = 'green';
         if (content.length == 0 || content > 20 || content < 0) {
             status = false;
@@ -46,13 +45,8 @@ function buttonPres () {
             status = false;
             document.getElementById(team+'3').style.borderColor = 'red';
         }
-        document.getElementById(team+'4').style.borderColor = 'green';
-        if (crowd_favorite.length == 0 || crowd_favorite > 10 || crowd_favorite < 0) {
-            status = false;
-            document.getElementById(team+'4').style.borderColor = 'red';
-        }
-        let score = parseInt(content) + parseInt(creativity) + parseInt(resourcefulness) + parseInt(performance) + parseInt(crowd_favorite);
-        scores.push({name, department, team, content, creativity, resourcefulness, performance, crowd_favorite, date, score});        
+        let score = parseInt(content) + parseInt(creativity) + parseInt(resourcefulness) + parseInt(performance);
+        scores.push({name, department, team, content, creativity, resourcefulness, performance, date, score});        
     }
     if (status) {
         socket.emit('fac_judge', scores);
@@ -82,7 +76,6 @@ socket.on('receiveEntries', function(data) {
         newHTML += '            <input type="number" class="form-control" id="' + data.data[x].name + '1" aria-describedby="nameHelp" placeholder="Creativity" required>';        
         newHTML += '            <input type="number" class="form-control" id="' + data.data[x].name + '2" aria-describedby="nameHelp" placeholder="Resourcesfulness" required>';        
         newHTML += '            <input type="number" class="form-control" id="' + data.data[x].name + '3" aria-describedby="nameHelp" placeholder="Performance" required>';        
-        newHTML += '            <input type="number" class="form-control" id="' + data.data[x].name + '4" aria-describedby="nameHelp" placeholder="Crowd Favorite" required>';        
         newHTML += '        </div>';
         newHTML += '    </div>';
         newHTML += '</div>';

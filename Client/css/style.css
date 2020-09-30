@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+#platform {
+    display: none;
+}
+
 div#index.container {
     background: url("../images/logo.png") no-repeat center left;
     background-color: '263B5B';
@@ -45,6 +49,13 @@ p.score {
 .grid-container3 {
     display: grid;
     grid-template-columns: auto auto;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+
+.grid-container5 {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
     padding: 10px;
     justify-content: space-evenly;
 }
@@ -151,6 +162,13 @@ div#outer2 {
     background-color: lightgray;    
 }
 
+div#outer3 {
+    margin: auto;
+    border-radius: 25px;
+    background-color: lightgray;    
+    width: 300px;
+}
+
 p {
     margin-left: 20px;
     margin-right: 20px;
@@ -173,6 +191,15 @@ fieldset, fieldset.form-group {
 .col-sm {
     float: left;
     width: 50%;
+}
+
+.grid-container4 {
+    grid-template-columns: auto;
+    margin: 20px 20px 20px 20px;
+}
+
+.grid-item2 {
+    text-align: center;
 }
 
 /* Media Queries */
@@ -199,6 +226,10 @@ fieldset, fieldset.form-group {
         grid-template-columns: auto auto auto;
     }
 
+    .grid-container5 {
+        grid-template-columns: auto auto auto auto;
+    }
+
 }
 
 /* Tablet Version */
@@ -223,6 +254,9 @@ fieldset, fieldset.form-group {
     .grid-container2 {
         grid-template-columns: auto auto;
     } 
+    .grid-container5 {
+        grid-template-columns: auto auto auto;
+    }
 
 }
 
@@ -264,4 +298,7 @@ label, legend, .form-check-label, #emailHelp, #nameHelp {
     .grid-container2 {
         grid-template-columns: auto;
     } 
+    .grid-container5 {
+        grid-template-columns: auto auto;
+    }
 }

@@ -12,6 +12,8 @@ const urlCrypt = require('url-crypt')(process.env.LINK_SECRET);
 //////////////////////////////////////
 let cacheCategories = [];
 let cacheEntries = [];
+let cacheMMEntries = [];
+let cacheMMCategories = [];
 let shsVoters = [];
 let cVoters = [];
 let pending_shsVoters = [];
@@ -24,7 +26,7 @@ let connectedSockets = [];
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
-let VoteDatabase = new VDatabase(cacheCategories, cacheEntries, shsVoters, cVoters);
+let VoteDatabase = new VDatabase(cacheCategories, cacheEntries, shsVoters, cVoters, cacheMMEntries, cacheMMCategories);
 let EmailReceipt = new EReceipt();
 
 //////////////////////////////////////
@@ -107,9 +109,30 @@ io.on('connection', function(socket){
         socket.emit('receiveTeams', data);
     });
 
+    // Admin Login
+    socket.on('login', function(data){
+        if (data.username == "Admin" && data.password == "1234") {
+            socket.emit('loginConfirmed');
+        }
+        else {
+            socket.emit('loginFailed');
+        }
+    });
+
+    // Admin Get Data
+    socket.on('getEntriesAdmin', function(packet){
+        let data = [];
+        console.log(cacheEntries);
+        for (let key in cacheEntries) {
+            if (packet.list.includes(cacheEntries[key].data.category)) {
+                data.push({name: key, link: cacheEntries[key].data.link, category: cacheEntries[key].data.category, total_votes: cacheEntries[key].votes.length});
+            }            
+        }  
+        socket.emit('receiveEntries', {data: data});
+    });
+
     // Emit Entries with Videos
     socket.on('getEntries', function(packet){
-        // console.log(packet);
         let data = [];
         for (let key in cacheEntries) {
             if (packet.list.includes(cacheEntries[key].data.category)) {
@@ -117,7 +140,22 @@ io.on('connection', function(socket){
             }            
         }  
         socket.emit('receiveEntries', {data: data});
-        // console.log(data);
+    });
+
+    // Emit Entries with Videos
+    socket.on('getMMEntries', function(packet){
+        let data = [];
+        for (let key in cacheMMEntries) {
+            if (packet.list.includes(cacheMMEntries[key].data.category)) {
+                data.push({name: key, link: cacheMMEntries[key].data.link, poster: cacheMMEntries[key].data.poster, category: cacheMMEntries[key].data.category});
+            }            
+        }  
+        socket.emit('receiveEntries', {data: data});
+    });
+
+    // Receive Judging Scores from MM
+    socket.on("mm_judge", function(data){
+        VoteDatabase.submitScoreMM(data);
     });
 
     // Receive Judging Scores from FAC
@@ -127,6 +165,7 @@ io.on('connection', function(socket){
     // Receive Judging Scores from SS
     socket.on("ss_judge", function(data){
         VoteDatabase.submitScoreSS(data);
+        // console.log(data);
     });
     // Receive Judging Scores from VV
     socket.on("vv_judge", function(data){

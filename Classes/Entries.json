@@ -1,128 +1,83 @@
 {
-    "shs_fac_stem": {
+    "FAC SHS Entry 1": {
         "category": "SHS MCMFlicks and Chill",
         "code": "facSHS",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
+        "link": "https://www.youtube.com/embed/Yc3ON1gFvik"
     },
-    "shs_fac_abm": {
-        "category": "SHS MCMFlicks and Chill",
-        "code": "facSHS",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
-    },
-    "shs_fac_humss": {
-        "category": "SHS MCMFlicks and Chill",
-        "code": "facSHS",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
-    },
-    "shs_fac_ict": {
-        "category": "SHS MCMFlicks and Chill",
-        "code": "facSHS",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
-    },
-    "c_fac_atycb": {
+    "FAC College Entry 1": {
         "category": "COLLEGE MCMFlicks and Chill",
         "code": "facC",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
+        "link": "https://www.youtube.com/embed/ei1mYVv1N_g"
     },
-    "c_fac_cas": {
+    "FAC College Entry 2": {
         "category": "COLLEGE MCMFlicks and Chill",
         "code": "facC",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
+        "link": "https://www.youtube.com/embed/9BmlNCAwcX0"
     },
-    "c_fac_ccis": {
+    "FAC College Entry 3": {
         "category": "COLLEGE MCMFlicks and Chill",
         "code": "facC",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
-    },
-    "c_fac_cea": {
-        "category": "COLLEGE MCMFlicks and Chill",
-        "code": "facC",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
+        "link": "https://www.youtube.com/embed/V-5_vKJytoQ"
     },
 
 
 
-    "shs_ss_stem": {
+    "SHS Entry 1 (Group) | Deduyo et al.": {
         "category": "SHS Show Stopper",
         "code": "ssSHS",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
+        "link": "https://www.youtube.com/embed/I0d9FGGuP1I"
     },
-    "shs_ss_abm": {
+    "SHS Entry 2 (Group) | Magayano et al.": {
         "category": "SHS Show Stopper",
         "code": "ssSHS",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
-    },
-    "shs_ss_humss": {
+        "link": "https://www.youtube.com/embed/z7HZTwR9HIs"
+    },  
+    "SHS Entry 3 (Group) | Newton": {
         "category": "SHS Show Stopper",
         "code": "ssSHS",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
-    },
-    "shs_ss_ict": {
-        "category": "SHS Show Stopper",
-        "code": "ssSHS",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
-    },
-    "c_ss_atycb": {
+        "link": "https://www.youtube.com/embed/ezFQCmbZNfw"
+    },   
+    "College Entry 1 (Solo) | Angas, Mahaleah": {
         "category": "COLLEGE Show Stopper",
         "code": "ssC",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
+        "link": "https://www.youtube.com/embed/kvP4A8twcfc"
     },
-    "c_ss_cas": {
+    "College Entry 2 (Solo) | Pagsaligan, Renzo": {
         "category": "COLLEGE Show Stopper",
         "code": "ssC",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
-    },
-    "c_ss_ccis": {
-        "category": "COLLEGE Show Stopper",
-        "code": "ssC",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
-    },
-    "c_ss_cea": {
-        "category": "COLLEGE Show Stopper",
-        "code": "ssC",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
+        "link": "https://www.youtube.com/embed/4JBsrYStaU8&t=4s"
     },
 
 
 
-    "shs_vv_stem": {
+    "VotV SHS Entry 1": {
         "category": "SHS Vattle of the Vands",
         "code": "vvSHS",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
+        "link": "https://www.youtube.com/embed/ZSZOYHE4BO8"
     },
-    "shs_vv_abm": {
+    "VotV SHS Entry 2": {
         "category": "SHS Vattle of the Vands",
         "code": "vvSHS",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
+        "link": "https://www.youtube.com/embed/LDWKpTVxujs"
     },
-    "shs_vv_humss": {
+    "VotV SHS Entry 3": {
         "category": "SHS Vattle of the Vands",
         "code": "vvSHS",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
+        "link": "https://www.youtube.com/embed/GzKXis3ghAE"
     },
-    "shs_vv_ict": {
+    "VotV SHS Entry 4": {
         "category": "SHS Vattle of the Vands",
         "code": "vvSHS",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
+        "link": "https://www.youtube.com/embed/1j_BIm1i1h8"
     },
-    "c_vv_atycb": {
+    "VotV College Entry 1": {
         "category": "COLLEGE Vattle of the Vands",
         "code": "vvC",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
+        "link": "https://www.youtube.com/embed/_tFZiJRgRSs"
     },
-    "c_vv_cas": {
+    "VotV College Entry 2": {
         "category": "COLLEGE Vattle of the Vands",
         "code": "vvC",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
-    },
-    "c_vv_ccis": {
-        "category": "COLLEGE Vattle of the Vands",
-        "code": "vvC",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
-    },
-    "c_vv_cea": {
-        "category": "COLLEGE Vattle of the Vands",
-        "code": "vvC",
-        "link": "https://www.youtube.com/embed/LiGEy4Zdvl4"
+        "link": "https://www.youtube.com/embed/SK9lX27JPC4"
     }
 }

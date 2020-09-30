@@ -1,4 +1,4 @@
-<!-- Site to Serve Entries -->
+<!-- Site to Serve Judge Results -->
 
 <!DOCTYPE html>
 <html>
@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title> MCM Fusion: Technicity Vattle of the Vands Judging </title>        
+        <title> MCM Fusion: Technicity Admin </title>        
         <!-- Title Icon -->
         <link rel="icon" href="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/929cb090-e779-401a-b06c-c629ff6b0fea/ap-malayancollegesminda/editor_images/logo2_1.png" type="image/x-icon">
         <!-- Bootstrap CSS -->
@@ -60,25 +60,50 @@
         
         <!-- Section 1 -->
         <form>
-            <div>
+            <div id="login" class="text-center">
+                <div id="outer3">
+                    <div class="grid-container4">                    
+                        <br>
+                        <label for="inputName"> Admin Control  </label>
+                        <br>                        
+                        <input type="text" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Enter Username" required> 
+                        <br>       
+                        <input type="password" class="form-control" id="inputPassword" aria-describedby="nameHelp" placeholder="Enter Pasword" required>
+                        <br>
+                        <button id="b3" type="button" class="btn btn-primary" onclick="login()"> Login </button>                    
+                        <br>
+                        <br>
+                    </div>
+                </div>                
+            </div>
+            <div id="platform">
                 <section class="title">
-                    <h3 id="a1" id="top" class="text-center">  Vattle of the Vands </h3>                    
-                </section>                                     
-                <hr class="style1">                      
+                    <h3 id="a1" id="top" class="text-center">  Admin Control </h3>                    
+                </section>  
                 <div class="text-center">
-                    <img src="./images/vv.PNG" width="496" height="336" alt="FAC Criteria">
-                </div>                              
-                <div id="entries" class="grid-container3">
+                    <button type="button" class="btn btn-primary" onclick="buttonPres('All')"> View All Entries </button>
+                    <button type="button" class="btn btn-primary" onclick="buttonPres('fac')"> Flicks and Chill </button>
+                    <button type="button" class="btn btn-primary" onclick="buttonPres('ss')"> Show Stopper </button>
+                    <button type="button" class="btn btn-primary" onclick="buttonPres('vv')"> Vattle of the Vands </button>
+                </div>   
+                <br>
+                <h3 id="a1" id="top" class="text-center">  Senior High School </h3> 
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" onclick="buttonPres('shsFAC')"> SHS Flicks and Chill </button>
+                    <button type="button" class="btn btn-primary" onclick="buttonPres('shsSS')"> SHS Show Stopper </button>
+                    <button type="button" class="btn btn-primary" onclick="buttonPres('shsVV')"> SHS Vattle of the Vands </button>
+                </div>
+                <br>
+                <h3 id="a1" id="top" class="text-center">  College </h3> 
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" onclick="buttonPres('cFAC')"> College Flicks and Chill </button>
+                    <button type="button" class="btn btn-primary" onclick="buttonPres('cSS')"> College Show Stopper </button>
+                    <button type="button" class="btn btn-primary" onclick="buttonPres('cVV')"> College Vattle of the Vands </button>
+                </div>                                
+                <hr class="style1">                                         
+                <div id="entries" class="grid-container5">
 
                 </div>
-                <div class="text-center">   
-                    <div class="form-group">
-                        <label for="inputName"> Name of Judge  </label>
-                        <input type="text" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Enter name" required>
-                    </div>                   
-                    <button id="b3" type="button" class="btn btn-primary" onclick="buttonPres()"> SUBMIT SCORES </button>
-                </div>                
-                <br>
             </div>            
         </form>
          
@@ -106,6 +131,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
         <!-- Local Scripts -->
         <!-- <script src="./js/utility.js"></script>  -->
-        <script src="./js/judging_vv.js"></script>
+        <script src="./js/admin.js"></script>
     </body>
 </html>
