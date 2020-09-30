@@ -25,17 +25,17 @@ function buttonPres () {
         let execution = document.getElementById(team+'1').value;
         let costume = document.getElementById(team+'2').value;
         document.getElementById(team+'0').style.borderColor = 'green';
-        if (choreography.length == 0 || choreography > 20 || choreography < 0) {
+        if (choreography.length == 0 || choreography > 40 || choreography < 0) {
             status = false;
             document.getElementById(team+'0').style.borderColor = 'red';
         }
         document.getElementById(team+'1').style.borderColor = 'green';
-        if (execution.length == 0 || execution > 20 || execution < 0) {
+        if (execution.length == 0 || execution > 30 || execution < 0) {
             status = false;
             document.getElementById(team+'1').style.borderColor = 'red';
         }
         document.getElementById(team+'2').style.borderColor = 'green';
-        if (costume.length == 0 || costume > 20 || costume < 0) {
+        if (costume.length == 0 || costume > 10 || costume < 0) {
             status = false;
             document.getElementById(team+'2').style.borderColor = 'red';
         }
