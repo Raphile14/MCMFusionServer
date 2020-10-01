@@ -19,6 +19,8 @@ let cVoters = [];
 let pending_shsVoters = [];
 let pending_cVoters = [];
 let connectedSockets = [];
+let cacheJudges = [];
+let cacheJudgesCategories = [];
 
 //////////////////////////////////////
 // Initialization
@@ -26,7 +28,7 @@ let connectedSockets = [];
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
-let VoteDatabase = new VDatabase(cacheCategories, cacheEntries, shsVoters, cVoters, cacheMMEntries, cacheMMCategories);
+let VoteDatabase = new VDatabase(cacheCategories, cacheEntries, shsVoters, cVoters, cacheMMEntries, cacheMMCategories, cacheJudges, cacheJudgesCategories);
 let EmailReceipt = new EReceipt();
 
 //////////////////////////////////////
@@ -122,7 +124,6 @@ io.on('connection', function(socket){
     // Admin Get Data
     socket.on('getEntriesAdmin', function(packet){
         let data = [];
-        console.log(cacheEntries);
         for (let key in cacheEntries) {
             if (packet.list.includes(cacheEntries[key].data.category)) {
                 data.push({name: key, link: cacheEntries[key].data.link, category: cacheEntries[key].data.category, total_votes: cacheEntries[key].votes.length});
@@ -140,6 +141,17 @@ io.on('connection', function(socket){
             }            
         }  
         socket.emit('receiveEntries', {data: data});
+    });
+
+    // Emit Judges
+    socket.on('getJudges', function(packet){
+        let data = [];
+        for (let key in cacheJudges) {
+            if (packet.list.includes(cacheJudges[key].data.category)) {
+                data.push({name: key, category: cacheJudges[key].data.category, link: cacheJudges[key].data.link, credentials: cacheJudges[key].data.credentials});
+            }            
+        }  
+        socket.emit('receiveJudges', {data: data});
     });
 
     // Emit Entries with Videos

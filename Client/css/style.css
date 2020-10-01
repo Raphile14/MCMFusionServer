@@ -7,6 +7,13 @@
     display: none;
 }
 
+img.judge {
+    max-width:300px;
+    max-height:300pxpx;
+    width: auto;
+    height: auto;
+}
+
 div#index.container {
     background: url("../images/logo.png") no-repeat center left;
     background-color: '263B5B';
@@ -56,6 +63,13 @@ p.score {
 .grid-container5 {
     display: grid;
     grid-template-columns: auto auto auto auto;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+
+.grid-container6 {
+    display: grid;
+    grid-template-columns: auto auto auto;
     padding: 10px;
     justify-content: space-evenly;
 }
@@ -235,6 +249,10 @@ fieldset, fieldset.form-group {
         grid-template-columns: auto auto auto auto;
     }
 
+    .grid-container6 {
+        grid-template-columns: auto auto auto;
+    }
+
 }
 
 /* Tablet Version */
@@ -261,6 +279,9 @@ fieldset, fieldset.form-group {
     } 
     .grid-container5 {
         grid-template-columns: auto auto auto;
+    }
+    .grid-container6 {
+        grid-template-columns: auto auto;
     }
 
 }
@@ -305,5 +326,8 @@ label, legend, .form-check-label, #emailHelp, #nameHelp {
     } 
     .grid-container5 {
         grid-template-columns: auto auto;
+    }
+    .grid-container6 {
+        grid-template-columns: auto;
     }
 }

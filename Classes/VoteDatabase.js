@@ -1,15 +1,18 @@
 const Entries = require('./Entries.json');
 const mmEntries = require('./StaycationEntries.json');
+const Judges = require('./Judges.json');
 const {GoogleSpreadsheet} = require('google-spreadsheet');
 
 module.exports = class VoteDatabase {
-    constructor(cacheCategories, cacheEntries, shsVoters, cVoters, cacheMMEntries, cacheMMCategories){
+    constructor(cacheCategories, cacheEntries, shsVoters, cVoters, cacheMMEntries, cacheMMCategories, cacheJudges, cacheJudgesCategories){
         this.cacheCategories = cacheCategories;
         this.cacheEntries = cacheEntries;
         this.shsVoters = shsVoters;
         this.cVoters = cVoters;
         this.cacheMMEntries = cacheMMEntries;
         this.cacheMMCategories = cacheMMCategories;
+        this.cacheJudges = cacheJudges;
+        this.cacheJudgesCategories = cacheJudgesCategories;
         this.format = [["email", "name", "voted_team", "date"]];
         this.doc;
         this.judgeSheets = ["judging_fac", "judging_ss", "judging_vv", "judging_mm"]
@@ -41,6 +44,12 @@ module.exports = class VoteDatabase {
                 this.cacheMMCategories.push(mmEntries[key].category);
             }
             this.cacheMMEntries[key] = {votes: [], data: mmEntries[key]};            
+        }
+        for (let key in Judges) {
+            if (!this.cacheJudgesCategories.includes(Judges[key].category)) {
+                this.cacheJudgesCategories.push(Judges[key].category);
+            }
+            this.cacheJudges[key] = {data: Judges[key]};            
         }
 
         //////////////////////////////////////

@@ -1,4 +1,4 @@
-<!-- Site to Serve Results -->
+<!-- Site to Serve Entries -->
 
 <!DOCTYPE html>
 <html>
@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title> MCM Fusion: Technicity </title>        
+        <title> MCM Fusion: Technicity Judges </title>        
         <!-- Title Icon -->
         <link rel="icon" href="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/929cb090-e779-401a-b06c-c629ff6b0fea/ap-malayancollegesminda/editor_images/logo2_1.png" type="image/x-icon">
         <!-- Bootstrap CSS -->
@@ -20,20 +20,15 @@
     <body>        
         <header>
             <nav id="header-nav" class="navbar navbar-default">
-                <div id="index" class="container"> 
-                    <div class="navbar-header">
-                        <!-- <a href="index.html" class="pull-left visible-md visible-lg">
-                            <div id="logo-img"></div>
-                        </a> -->
-                    </div>                         
-
-                    <!-- Collapsable Button -->  
+                <div id="index" class="container">                                            
+                    
+                    <!-- Collapsable Button -->                    
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
                         <span class="sr-only"> Toggle Navigation </span>
                         <span class="icon-bar"> </span>
                         <span class="icon-bar"> </span>
                         <span class="icon-bar"> </span>
-                    </button>   
+                    </button>  
                     
                     <!-- Navbar Front -->
                     <div id="" class="float-right visible-sm visible-md visible-lg visible-xl">
@@ -44,9 +39,9 @@
                             <li> <a href="submission.html"> <h2 class="list"> VOTING AREA </h2> </a> </li>
                             <li> <a href="policy.html"> <h2 class="list"> PRIVACY POLICY </h2> </a> </li>
                         </ul>
-                    </div>                                      
+                    </div>
                 </div>
-                
+
                 <!-- Collapsable Navbar -->
                 <div id="collapsable-nav" class="collapse navbar-collapse">
                     <ul id="nav-list" class="nav navbar-nav navbar-right visible-xs text-center">
@@ -58,64 +53,30 @@
                     </ul>
                 </div>
             </nav>
-        </header>           
-                   
-        <div>
-            <!-- Section 1 -->
-            <div class="col-large col-medium col-small">
-                <div id="outer">
-                    <br>
-                    <section class="title">
-                        <h3 id="a1" id="top" class="text-center">  MCM Flicks & Chill </h3>
-                    </section>                    
-                    <p class="description text-center"> <a href="#top" class="visible-xs"> (Back to Top) </a> </p>
-                    <section id="facSHS" class="grid-container">                                         
-                    </section>
-                    <hr class="style1">
-                    <p class="description text-center"> <a href="#top" class="visible-xs"> (Back to Top) </a> </p>
-                    <section id="facC" class="grid-container">                         
-                    </section>
-                    <br>
-                </div>
-                
-            </div>
-            
-            <!-- Section 2 -->
-            <div class="col-large col-medium col-small">                            
-                <div id="outer">
-                    <br>             
-                    <section id="a2" class="title">
-                        <h3 id="top" class="text-center"> Show Stopper </h3>
-                    </section>                      
-                    <p class="description text-center"> <a href="#top" class="visible-xs"> (Back to Top) </a> </p>
-                    <section id="ssSHS" class="grid-container">                         
-                    </section>
-                    <hr class="style1">
-                    <p class="description text-center"> <a href="#top" class="visible-xs"> (Back to Top) </a> </p>
-                    <section id="ssC" class="grid-container"> 
-                    </section>
-                    <br>
-                </div>            
-            </div>
-                    
-            <!-- Section 3 -->
-            <div class="col-large col-medium col-small">
-                <div id="outer">
-                    <br>
-                    <section id="a3" class="title">
-                        <h3 id="top" class="text-center">  Vattle of the Vands </h3>
-                    </section>                    
-                    <p class="description text-center"> <a href="#top" class="visible-xs"> (Back to Top) </a> </p>
-                    <section id="vvSHS" class="grid-container">                         
-                    </section>
-                    <hr class="style1">
-                    <p class="description text-center"> <a href="#top" class="visible-xs"> (Back to Top) </a> </p>
-                    <section id="vvC" class="grid-container">                         
-                    </section>
-                    <br>
-                </div>            
-            </div>
-        </div>
+        </header>              
+        
+        <!-- Section 1 -->
+        <div class="">
+            <div id="outer">
+                <br>
+                <section class="title">
+                    <h3 id="a1" id="top" class="text-center">  JUDGES </h3>
+                </section>                                    
+                <div class="text-center" style="margin: 20px 20px 20px 20px;">
+                    <button id="b1" type="button" class="btn btn-success" onclick="buttonPres(1)"> All </button>
+                    <button id="b2" type="button" class="btn btn-primary" onclick="buttonPres(2)"> Mr. and Ms. Staycation </button>
+                    <button id="b3" type="button" class="btn btn-primary" onclick="buttonPres(3)"> MCMFlicks and Chill </button>
+                    <button id="b4" type="button" class="btn btn-primary" onclick="buttonPres(4)"> Show Stopper </button>
+                    <button id="b5" type="button" class="btn btn-primary" onclick="buttonPres(5)"> Vattle of the Vands </button>                    
+                </div>  
+                <hr class="style1">
+                <br>
+            </div>            
+        </div>                
+
+        <section id="entries" class="grid-container6">
+
+        </section>        
         
         <!-- Footer -->
         <footer class="page-footer font-small">
@@ -134,7 +95,7 @@
                     </div>
                 </div>                
             </div>            
-        </footer>                
+        </footer>       
 
         <!-- Scripts -->
         <!-- Boostrap JS Files -->
@@ -144,6 +105,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
         <!-- Local Scripts -->
         <!-- <script src="./js/utility.js"></script>  -->
-        <script src="./js/results.js"></script>
+        <script src="./js/judges.js"></script>
     </body>
 </html>
