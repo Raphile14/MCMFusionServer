@@ -66,7 +66,7 @@ socket.on('receiveJudges', function(data) {
     let newHTML = '';
     for (let x in data.data) {
         newHTML += '<div id="outer" class="text-center grid-item"> <br>';
-        newHTML += '<img class="judge" src="' + data.data[x].link + '"> <br>'
+        newHTML += '<img class="judge" src="images/judges/' + data.data[x].link + '"> <br>'
         newHTML += '<h1 style="color: black"> ' + data.data[x].name + '</h1>';
         newHTML += '<h3 class="text-center" style="font-size: 14px"> <i> ' + data.data[x].category + ' </i> </h3>';
         newHTML += '<p class="text-center"> ' + data.data[x].credentials + ' </p> <br>';
